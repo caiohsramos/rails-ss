@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to feed_path(@item.feed) }
       end
     else
-      # ??? notice?
+      render :edit, status: :unprocessable_entity
     end
   end
 

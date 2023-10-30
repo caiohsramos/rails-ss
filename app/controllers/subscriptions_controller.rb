@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
     if result.success?
       redirect_back_or_to root_path, notice: 'Import complete.'
     else
-      # ???
+      redirect_to root_path, alert: 'Failed to import subscriptions.'
     end
   end
 
