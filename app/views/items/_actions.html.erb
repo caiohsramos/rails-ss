@@ -1,0 +1,19 @@
+<%= turbo_frame_tag dom_id(item, :actions) do %>
+  <div class='flex gap-2 px-5'>
+    <%= form_with model: item do |f| %>
+      <%= f.hidden_field(:status, value: (item.unread? ? :read : :unread)) %>
+      <%= f.button type: 'submit' do %>
+        <%= item.unread? ? render('icons/book-solid') : render('icons/book-outline') %>
+      <% end %>
+    <% end %>
+    <%= form_with model: item do |f| %>
+      <%= f.hidden_field(:status, value: (item.starred? ? :read : :starred)) %>
+      <%= f.button type: 'submit' do %>
+        <%= item.starred? ? render('icons/star-solid') : render('icons/star-outline') %>
+      <% end %>
+    <% end %>
+    <%= link_to item.link, target: :_blank do %>
+      <%= render('icons/link') %>
+    <% end %>
+  </div>
+<% end %>

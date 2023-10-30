@@ -1,0 +1,28 @@
+<%# locals: (list_item: nil, list_item_counter: 0, list_item_iteration: 0) -%>
+<% if list_item.blank? %>
+  <li class="py-2" id='all-list-item'>
+    <%= link_to root_path, class: class_names('flex', 'justify-between', { active: @current_selection.blank? }) do %>
+      All feeds
+      <% if render_badges?(@current_filter) %>
+        <div class="badge"><%= @sidebar_metrics.send(@current_filter).all %></div>
+      <% end %>
+    <% end %>
+  </li>
+<% elsif render_list_item?(list_item, @sidebar_metrics, @current_selection, @current_filter) %>
+  <li class="py-2" id=<%= dom_id(list_item, :list_item) %>>
+    <%= link_to list_item, class: class_names('flex', 'justify-between', { active: list_item == @current_selection }) do %>
+      <div class='flex gap-1'>
+        <%= render 'icons/chevron-down' if list_item.respond_to?(:feeds) %>
+        <%= list_item.title %>
+      </div>
+      <% if render_badges?(@current_filter) %>
+        <div class="badge"><%= badge_for(list_item, @sidebar_metrics, @current_filter) %></div>
+      <% end %>
+    <% end %>
+    <% if list_item.respond_to?(:feeds) %>
+      <ul>
+        <%= render partial: 'feeds/list_item', collection: list_item.feeds, as: :list_item %>
+      </ul>
+    <% end %>
+  </li>
+<% end %>

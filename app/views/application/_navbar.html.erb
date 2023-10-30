@@ -1,0 +1,39 @@
+<div class="navbar bg-base-300 sticky top-0 z-10">
+  <div class="navbar-start">
+    <div class="flex-none">
+      <label for="drawer" class="btn btn-square btn-ghost drawer-button lg:hidden">
+        <%= render 'icons/bars-3' %>
+      </label>
+    </div>
+    <%= link_to 'Rails-ss', root_path, class: 'btn btn-ghost normal-case text-xl' %>
+  </div>
+  <div class="navbar-center">
+  </div>
+  <div class="navbar-end">
+    <div class="tooltip tooltip-bottom" data-tip="Import feeds">
+      <%= form_with url: subscriptions_import_path do |f| %>
+        <%= f.label :import_file, class: 'btn btn-ghost btn-circle' do %>
+          <%= render 'icons/arrow-up-tray' %>
+        <% end %>
+        <%= f.file_field :import_file, class: 'hidden', onchange: 'this.form.requestSubmit()' %>
+      <% end %>
+    </div>
+    <div class="tooltip tooltip-bottom" data-tip="Refresh feeds">
+      <%= form_with url: refresh_feeds_path, method: :put do |f| %>
+        <%= f.button type: :submit, class: 'btn btn-ghost btn-circle' do %>
+          <%= render 'icons/arrow-path' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tooltip tooltip-bottom" data-tip="Mark read (selected)">
+      <%= form_with url: all_read_form_path(@current_selection), method: :put do |f| %>
+        <%= f.button type: :submit, class: 'btn btn-ghost btn-circle' do %>
+          <%= render 'icons/check'%>
+        <% end %>
+      <% end %>
+    </div>
+    <button class="btn btn-ghost btn-circle">
+      <%= render 'icons/search' %>
+    </button>
+  </div>
+</div>

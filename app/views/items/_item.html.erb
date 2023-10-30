@@ -1,0 +1,23 @@
+<div class='flex flex-col gap-3' data-controller='detailsform' data-detailsform-item-status-value="<%= item.status %>">
+  <div class='flex align-center'>
+    <%= render 'actions', item: item %>
+    <p class='text-sm'><%= item.feed.title %></p>
+  </div>
+  <%= form_with model: item, data: { detailsform_target: 'form' } do |f| %>
+    <%= f.hidden_field(:status, value: :read) %>
+    <details class="collapse collapse-plus border border-base-300 bg-base-200" data-action="toggle->detailsform#toggle">
+      <summary class="collapse-title text-xl font-medium">
+        <div class='flex flex-col gap-2'>
+          <p><%= item.title %></p>
+          <p class='font-thin'><%= "#{time_ago_in_words(item&.date || item.created_at)} from #{item&.author || item.feed.title}"%></p>
+        </div>
+      </summary>
+      <div class="collapse-content">
+        <article class="prose">
+          <%= image_tag(item.image) if item.image.present? %>
+          <%= simple_format(item.content || item.description) %>
+        </article>
+      </div>
+    </details>
+  <% end %>
+</div>

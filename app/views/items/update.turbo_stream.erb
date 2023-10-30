@@ -1,0 +1,14 @@
+<%= turbo_stream.replace dom_id(@item, :actions) do %>
+  <%= render 'items/actions', item: @item %>
+<% end %>
+<%= turbo_stream.replace dom_id(@item.feed, :list_item) do %>
+  <%= render 'feeds/list_item', list_item: @item.feed %>
+<% end %>
+<%= turbo_stream.replace 'all-list-item' do %>
+  <%= render 'feeds/list_item' %>
+<% end %>
+<% if @item.feed.folder.present? %>
+  <%= turbo_stream.replace dom_id(@item.feed.folder, :list_item) do %>
+    <%= render 'feeds/list_item', list_item: @item.feed.folder %>
+  <% end %>
+<% end %>

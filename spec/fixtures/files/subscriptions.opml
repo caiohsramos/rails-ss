@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+<head><title>subscriptions</title></head>
+<body>
+  <outline text="Memes">
+    <outline type="rss" text="Dolangue News" xmlUrl="https://dolanguenews.com.br/feed/" htmlUrl="https://dolanguenews.com.br"/>
+    <outline type="rss" text="Melted Videos - Telegram Channel" xmlUrl="https://rsshub.caioramos.dev/telegram/channel/meltedvideosoficial?code=cfbb3e522d37f9efa3f970a26d5b714f" htmlUrl="https://rsshub.caioramos.dev/telegram/channel/meltedvideosoficial?code=cfbb3e522d37f9efa3f970a26d5b714f"/>
+    <outline type="rss" text="xkcd" xmlUrl="http://xkcd.com/rss.xml" htmlUrl="https://xkcd.com/"/>
+  </outline>
+  <outline text="News">
+    <outline type="rss" text="Vox -  All" xmlUrl="https://www.vox.com/rss/index.xml" htmlUrl="https://www.vox.com/"/>
+  </outline>
+  <outline text="News BR">
+    <outline type="rss" text="BBC Brasil - Notícias, vídeos, análise e contexto em português" xmlUrl="http://www.bbc.co.uk/portuguese/index.xml" htmlUrl="http://www.bbcbrasil.com"/>
+    <outline type="rss" text="g1 - Telegram Channel" xmlUrl="https://rsshub.caioramos.dev/telegram/channel/portal_g1?code=bf868b7d2e749d286c968f0a04a68984" htmlUrl="https://t.me/s/portal_g1"/>
+  </outline>
+  <outline text="News Tech">
+    <outline type="rss" text="Diolinux" xmlUrl="http://feeds.feedburner.com/Diolinux" htmlUrl="https://diolinux.com.br"/>
+    <outline type="rss" text="Manual do Usuário" xmlUrl="http://www.manualdousuario.net/feed/" htmlUrl="https://manualdousuario.net"/>
+    <outline type="rss" text="Release notes from jellyfin" xmlUrl="https://github.com/jellyfin/jellyfin/releases.atom" htmlUrl="https://github.com/jellyfin/jellyfin/releases"/>
+  </outline>
+  <outline text="Podcasts">
+    <outline type="rss" text="Café da Manhã" xmlUrl="https://rsshub.caioramos.dev/spotify/show/6WRTzGhq3uFxMrxHrHh1lo?code=f835414cfb95fa909de7ccf5c0ff43e1" htmlUrl="https://open.spotify.com/show/6WRTzGhq3uFxMrxHrHh1lo"/>
+    <outline type="rss" text="O Assunto" xmlUrl="https://rsshub.caioramos.dev/spotify/show/4gkKyFdZzkv1eDnlTVrguk?code=282a19e0a2461bcd412f18ff06b70657" htmlUrl="https://open.spotify.com/show/4gkKyFdZzkv1eDnlTVrguk"/>
+  </outline>
+  <outline text="Tech">
+    <outline type="rss" text="Beeper Blog" xmlUrl="https://blog.beeper.com/feed" htmlUrl="https://blog.beeper.com/feed"/>
+    <outline type="rss" text="Caio Ramos" xmlUrl="https://caioramos.dev/feed.xml" htmlUrl="https://caioramos.dev/"/>
+    <outline type="rss" text="Hacker News: Best" xmlUrl="https://hnrss.org/best" htmlUrl="https://news.ycombinator.com/best"/>
+    <outline type="rss" text="Rubyland" xmlUrl="http://rubyland.news/feed.rss" htmlUrl="http://www.rubyland.news"/>
+    <outline type="rss" text="Órbita – Manual do Usuário" xmlUrl="https://manualdousuario.net/feed/?post_type=orbita_post" htmlUrl="https://manualdousuario.net"/>
+  </outline>
+  <outline text="Videos">
+    <outline type="rss" text="Banquete" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCsief0komuINVOSiw8UOZbw" htmlUrl="https://www.youtube.com/channel/UCsief0komuINVOSiw8UOZbw"/>
+    <outline type="rss" text="Cortes do Casimito [OFICIAL]" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC4aiJNDUviw_vMhdCq5Kq1Q" htmlUrl="https://www.youtube.com/channel/UC4aiJNDUviw_vMhdCq5Kq1Q"/>
+    <outline type="rss" text="DIOGO DEFANTE" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCio9eHYbIrKYK0j71nfUEqA" htmlUrl="https://www.youtube.com/channel/UCio9eHYbIrKYK0j71nfUEqA"/>
+    <outline type="rss" text="Epicurious" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCcjhYlL1WRBjKaJsMH_h7Lg" htmlUrl="https://www.youtube.com/channel/UCcjhYlL1WRBjKaJsMH_h7Lg"/>
+    <outline type="rss" text="FRONT" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCu8TwaBHToXasjxkKROj6kA" htmlUrl="https://www.youtube.com/channel/UCu8TwaBHToXasjxkKROj6kA"/>
+    <outline type="rss" text="Insider" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCHJuQZuzapBh-CuhRYxIZrg" htmlUrl="https://www.youtube.com/channel/UCHJuQZuzapBh-CuhRYxIZrg"/>
+    <outline type="rss" text="Isabela Boscov" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCC1QUJZGfqrSGwwYXvZhqig" htmlUrl="https://www.youtube.com/channel/UCC1QUJZGfqrSGwwYXvZhqig"/>
+    <outline type="rss" text="Manual do Mundo" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCKHhA5hN2UohhFDfNXB_cvQ" htmlUrl="https://www.youtube.com/channel/UCKHhA5hN2UohhFDfNXB_cvQ"/>
+    <outline type="rss" text="Mark Rober" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCY1kMZp36IQSyNx_9h4mpCg" htmlUrl="https://www.youtube.com/channel/UCY1kMZp36IQSyNx_9h4mpCg"/>
+    <outline type="rss" text="Marques Brownlee" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ" htmlUrl="https://www.youtube.com/channel/UCBJycsmduvYEL83R_U4JriQ"/>
+    <outline type="rss" text="Meteoro Brasil" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCk5BcU1rOy6hepflk7_q_Pw" htmlUrl="https://www.youtube.com/channel/UCk5BcU1rOy6hepflk7_q_Pw"/>
+    <outline type="rss" text="Mike Boyd" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCIRiWCPZoUyZDbydIqitHtQ" htmlUrl="https://www.youtube.com/channel/UCIRiWCPZoUyZDbydIqitHtQ"/>
+    <outline type="rss" text="O Brasil Que Deu Certo" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCgmkQIp08MsIT46CsmJYxFQ" htmlUrl="https://www.youtube.com/channel/UCgmkQIp08MsIT46CsmJYxFQ"/>
+    <outline type="rss" text="PELEJA" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCA9M9BKgbytic_UpscwZnEQ" htmlUrl="https://www.youtube.com/channel/UCA9M9BKgbytic_UpscwZnEQ"/>
+    <outline type="rss" text="Porta dos Fundos" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCEWHPFNilsT0IfQfutVzsag" htmlUrl="https://www.youtube.com/channel/UCEWHPFNilsT0IfQfutVzsag"/>
+    <outline type="rss" text="The Verge" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCddiUEpeqJcYeBxX1IVBKvQ" htmlUrl="https://www.youtube.com/channel/UCddiUEpeqJcYeBxX1IVBKvQ"/>
+    <outline type="rss" text="Theo - t3․gg" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCbRP3c757lWg9M-U7TyEkXA" htmlUrl="https://www.youtube.com/channel/UCbRP3c757lWg9M-U7TyEkXA"/>
+    <outline type="rss" text="Thomas Flight" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCUyvQV2JsICeLZP4c_h40kA" htmlUrl="https://www.youtube.com/channel/UCUyvQV2JsICeLZP4c_h40kA"/>
+    <outline type="rss" text="TV Quase" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UC033rpv7OKk-QYfrvwl5s8Q" htmlUrl="https://www.youtube.com/channel/UC033rpv7OKk-QYfrvwl5s8Q"/>
+    <outline type="rss" text="Veritasium" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA" htmlUrl="https://www.youtube.com/channel/UCHnyfMqiRRG1u-2MsSQLbXA"/>
+    <outline type="rss" text="Vox" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCLXo7UDZvByw2ixzpQCufnA" htmlUrl="https://www.youtube.com/channel/UCLXo7UDZvByw2ixzpQCufnA"/>
+    <outline type="rss" text="WIRED" xmlUrl="https://www.youtube.com/feeds/videos.xml?channel_id=UCftwRNsjfRo08xYE31tkiyw" htmlUrl="https://www.youtube.com/channel/UCftwRNsjfRo08xYE31tkiyw"/>
+  </outline>
+  <outline type="rss" text="BBC Weather - São Paulo, BR" xmlUrl="https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/3448439" htmlUrl="https://www.bbc.co.uk/weather/3448439"/>
+  <outline type="rss" text="reddit: the front page of the internet" xmlUrl="https://www.reddit.com/.rss?feed=1b5f177ff73c5147a6609323d042b8b7207c9257&amp;user=caiohsramos" htmlUrl="https://www.reddit.com/?feed=1b5f177ff73c5147a6609323d042b8b7207c9257&amp;user=caiohsramos"/>
+</body>
+</opml>

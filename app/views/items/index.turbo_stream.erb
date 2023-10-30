@@ -1,0 +1,15 @@
+<%= turbo_stream.append "items" do %>
+  <%= render partial: 'item', collection: @items, spacer_template: "application/divider" %>
+  <% if @items.empty? %>
+    <p class='text-center'>No items to display :(</p>
+  <% else %>
+    <%= render 'application/divider' %>
+  <% end %>
+<% end %>
+<% if @pagy.next.present? %>
+  <%= turbo_stream.replace "items-pagination" do %>
+    <%= render 'content', path_to_render: current_items_path(@current_selection, filter: @current_filter, page: @pagy.next, format: :turbo_stream) %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "items-pagination" %>
+<% end %>

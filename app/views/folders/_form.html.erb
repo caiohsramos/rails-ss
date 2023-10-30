@@ -1,0 +1,19 @@
+<%= form_with(model: folder) do |form| %>
+  <div class='form-control flex flex-col gap-4'>
+    <% if folder.errors.any? %>
+      <div id="error_explanation" class="alert alert-error mt-3 block">
+        <h2><%= pluralize(folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+        <ul>
+          <% folder.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+      <%= form.label :title, class: 'label' %>
+      <%= form.text_field :title, class: "input input-bordered w-full" %>
+    </div>
+    <%= form.submit class: "btn btn-primary self-center w-full max-w-md" %>
+  </div>
+<% end %>

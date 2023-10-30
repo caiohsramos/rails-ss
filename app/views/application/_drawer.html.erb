@@ -1,0 +1,41 @@
+<div class="drawer lg:drawer-open">
+  <input id="drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    <%= render "navbar" %>
+    <%= yield %>
+  </div>
+  <div class="drawer-side z-20">
+    <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+    <div class='flex flex-col gap-3 p-3 min-h-full bg-base-200 w-80'>
+      <ul class="menu bg-base-300 rounded-box w-full">
+        <li>
+          <details>
+            <summary>Folders</summary>
+            <ul>
+              <li><%= link_to "Manage folders", folders_path %></li>
+              <li><%= link_to 'New Folder', new_folder_path, { onclick: 'modal.showModal()', data: { turbo_frame: 'modal-frame' } }%></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Feeds</summary>
+            <ul>
+              <li><%= link_to "Manage feeds", feeds_path %></li>
+              <li><%= link_to 'New Feed', new_feed_path %></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+      <%= form_with scope: :settings, url: settings_path, method: :put, class: 'form-control' do |form| %>
+        <%= form.label :current_filter, 'Filter', class: 'label' %>
+        <%= form.select :current_filter, filter_options, { selected: @current_filter }, { class: "select select-sm w-full max-w-xs", onchange: 'this.form.requestSubmit()' } %>
+      <% end %>
+      <ul class="menu text-xs">
+        <%= render 'feeds/list_item' %>
+        <%= render partial: 'feeds/list_item', collection: @sidebar_folders, as: :list_item %>
+        <%= render partial: 'feeds/list_item', collection: @sidebar_unfoldered_feeds, as: :list_item %>
+      </ul>
+    </div>
+  </div>
+</div>

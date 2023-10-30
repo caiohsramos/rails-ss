@@ -1,0 +1,31 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+AllCops:
+  NewCops: enable
+Style/Documentation:
+  Enabled: false
+Rails/I18nLocaleTexts:
+  Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/StubbedMock:
+  Enabled: false
+RSpec/VerifiedDoubles:
+  Enabled: false
+RSpec/ExpectInHook:
+  Enabled: false
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/*"
+RSpec/ImplicitSubject:
+  EnforcedStyle: single_statement_only
+RSpec/NestedGroups:
+  Max: 4
+Metrics/BlockLength:
+  Exclude:
+    - "config/environments/*"
