@@ -17,5 +17,7 @@ docker run -p 3000:3000 -e SECRET_KEY_BASE=123 ghcr.io/caiohsramos/rails-ss:<ver
 - Start the development server `bin/dev`
 
 # Screenshots
-<img width="1470" alt="Screenshot 2023-10-30 at 19 22 50" src="https://github.com/caiohsramos/rails-ss/assets/12804854/3ddaae94-2805-4d10-9577-65a77fc1db6a">
-<img width="1470" alt="Screenshot 2023-10-30 at 19 23 49" src="https://github.com/caiohsramos/rails-ss/assets/12804854/0034b54b-ee14-4e5f-8662-4eaaded351ce">
+
+<img width="1470" alt="Screenshot 2023-10-30 at 19 23 49" src="https://github.com/caiohsramos/rails-ss/assets/12804854/a9859170-b8a6-46cc-bb8a-2313db7ef94c">
+<img width="1470" alt="Screenshot 2023-10-30 at 19 22 50" src="https://github.com/caiohsramos/rails-ss/assets/12804854/2160db9f-b371-4090-9cf1-b4b2528c548e">
+
