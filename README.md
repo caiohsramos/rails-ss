@@ -6,8 +6,7 @@ This is my take on a feed reader using Rails 7.1 with no-bundle JS. It relies on
 # Deploying
 Build and run the Dockerfile. The env `SECRET_KEY_BASE` is required. Example:
 ```
-docker build . -t rails-ss
-docker run -p 3000:3000 -e SECRET_KEY_BASE=123 rails-ss
+docker run -p 3000:3000 -e SECRET_KEY_BASE=123 ghcr.io/caiohsramos/rails-ss:<version>
 ```
 
 # Developing
