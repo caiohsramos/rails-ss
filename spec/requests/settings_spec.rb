@@ -4,14 +4,11 @@ require 'rails_helper'
 
 RSpec.describe 'Settings' do
   describe 'PUT /settings' do
-    it 'returns http success' do
-      put '/settings', params: { settings: { current_filter: 'unread' } }
-      expect(response).to have_http_status(:found)
-    end
+    let!(:settings) { create(:setting) }
 
-    it 'persists to session' do
-      put '/settings', params: { settings: { current_filter: 'unread' } }
-      expect(session[:current_filter]).to eq('unread')
+    it 'updates the database' do
+      put '/settings', params: { settings: { filter: 'unread' } }
+      expect(settings.reload.filter).to eq('unread')
     end
   end
 end

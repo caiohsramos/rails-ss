@@ -28,8 +28,8 @@
         </li>
       </ul>
       <%= form_with scope: :settings, url: settings_path, method: :put, class: 'form-control' do |form| %>
-        <%= form.label :current_filter, 'Filter', class: 'label' %>
-        <%= form.select :current_filter, filter_options, { selected: @current_filter }, { class: "select select-sm w-full max-w-xs", onchange: 'this.form.requestSubmit()' } %>
+        <%= form.label :filter, 'Filter', class: 'label' %>
+        <%= form.select :filter, filter_options, { selected: @settings.filter }, { class: "select select-sm w-full max-w-xs", onchange: 'this.form.requestSubmit()' } %>
       <% end %>
       <ul class="menu text-xs">
         <%= render 'feeds/list_item' %>

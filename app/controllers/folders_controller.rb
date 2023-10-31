@@ -2,16 +2,13 @@
 
 class FoldersController < ApplicationController
   before_action :set_folder, only: %i[show update destroy edit]
-  skip_before_action :set_current_selection, only: [:show]
 
   def index
     @folders = Folder.all
   end
 
   def show
-    session[:current_selection_id] = @folder.id
-    session[:current_selection_type] = @folder.class.name
-    set_current_selection
+    @settings.update(selection: @folder)
   end
 
   def new

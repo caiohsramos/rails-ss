@@ -1,1 +1,1 @@
-<%= render 'content', path_to_render: feed_items_path(@feed.id, filter: @current_filter, format: :turbo_stream) %>
+<%= render 'content', path_to_render: feed_items_path(@feed.id, filter: @settings.filter, format: :turbo_stream) %>

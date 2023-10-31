@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 class SettingsController < ApplicationController
-  skip_before_action :set_current_filter, only: [:update]
-
   def update
-    session[:current_filter] = settings_params[:current_filter] if settings_params[:current_filter].present?
-    set_current_filter
+    @settings.update(settings_params)
 
     redirect_back_or_to root_path
   end
@@ -13,6 +10,6 @@ class SettingsController < ApplicationController
   private
 
   def settings_params
-    params.require(:settings).permit(:current_filter)
+    params.require(:settings).permit(:filter)
   end
 end

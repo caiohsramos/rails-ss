@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  before_action :set_sidebar_data, :set_current_selection, :set_current_filter
+  before_action :set_sidebar_data, :set_settings
 
   def set_sidebar_data
     @sidebar_folders = Folder.all
@@ -10,13 +10,7 @@ class ApplicationController < ActionController::Base
     @sidebar_metrics = GetMetrics.call
   end
 
-  def set_current_filter
-    @current_filter = session[:current_filter] || 'all'
-  end
-
-  def set_current_selection
-    return if session[:current_selection_type].blank?
-
-    @current_selection = session[:current_selection_type].constantize.find_by(id: session[:current_selection_id])
+  def set_settings
+    @settings = Setting.first_or_create
   end
 end

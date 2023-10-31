@@ -8,7 +8,7 @@
 <% end %>
 <% if @pagy.next.present? %>
   <%= turbo_stream.replace "items-pagination" do %>
-    <%= render 'content', path_to_render: current_items_path(@current_selection, filter: @current_filter, page: @pagy.next, format: :turbo_stream) %>
+    <%= render 'content', path_to_render: current_items_path(@settings.selection, filter: @settings.filter, page: @pagy.next, format: :turbo_stream) %>
   <% end %>
 <% else %>
   <%= turbo_stream.replace "items-pagination" %>

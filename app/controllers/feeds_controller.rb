@@ -2,7 +2,6 @@
 
 class FeedsController < ApplicationController
   before_action :set_feed, only: %i[show edit update destroy]
-  skip_before_action :set_current_selection, only: [:show]
 
   # GET /feeds
   def index
@@ -11,9 +10,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1
   def show
-    session[:current_selection_id] = @feed.id
-    session[:current_selection_type] = @feed.class.name
-    set_current_selection
+    @settings.update(selection: @feed)
   end
 
   # GET /feeds/new
