@@ -2,6 +2,6 @@
 
 module SettingsHelper
   def filter_options
-    [%w[Unread unread], %w[Starred starred], %w[All all]]
+    [%w[All all], %w[Unread unread], %w[Starred starred]]
   end
 end

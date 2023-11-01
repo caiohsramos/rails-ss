@@ -5,7 +5,7 @@ export default class extends Controller {
   static values = {
     itemStatus: String,
   };
-  toggle(e) {
+  submitForm(e) {
     if (e.target.open && this.itemStatusValue === "unread") {
       this.formTarget.requestSubmit();
     }
