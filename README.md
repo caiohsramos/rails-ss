@@ -18,6 +18,8 @@ docker run -p 3000:3000 -e SECRET_KEY_BASE=123 ghcr.io/caiohsramos/rails-ss:<ver
 
 # Screenshots
 
-<img width="1470" alt="Screenshot 2023-10-30 at 19 23 49" src="https://github.com/caiohsramos/rails-ss/assets/12804854/a9859170-b8a6-46cc-bb8a-2313db7ef94c">
-<img width="1470" alt="Screenshot 2023-10-30 at 19 22 50" src="https://github.com/caiohsramos/rails-ss/assets/12804854/2160db9f-b371-4090-9cf1-b4b2528c548e">
+<img width="1470" alt="Screenshot 2023-10-31 at 22 31 40" src="https://github.com/caiohsramos/rails-ss/assets/12804854/0a239805-b592-4e16-a8e7-d8a2d9d31dcb">
+
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/7b609e51-eabf-4416-9a94-6ff7b4ff3a48">
+
 
