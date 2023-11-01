@@ -18,6 +18,8 @@ module ApplicationHelper
     ['keydown.1->hotkeys#selectAll',
      'keydown.2->hotkeys#selectUnread',
      'keydown.3->hotkeys#selectStarred',
-     'keydown.shift+r->hotkeys#readAll'].join(' ')
+     'keydown.shift+r->hotkeys#readAll',
+     'keydown.f->hotkeys#scrollContentDown',
+     'keydown.b->hotkeys#scrollContentUp'].join(' ')
   end
 end

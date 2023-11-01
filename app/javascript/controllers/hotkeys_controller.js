@@ -19,8 +19,16 @@ export default class extends Controller {
     this.filterSelectTarget.form.requestSubmit();
   }
 
-  // R
+  // shift+r
   readAll() {
     this.readAllFormTarget.requestSubmit();
+  }
+
+  // f, b
+  scrollContentDown() {
+    window.scrollBy(0, 200);
+  }
+  scrollContentUp() {
+    window.scrollBy(0, -200);
   }
 }
