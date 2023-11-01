@@ -1,7 +1,7 @@
 <%= turbo_stream.append "items" do %>
   <%= render partial: 'item', collection: @items, spacer_template: "application/divider" %>
   <% if @items.empty? %>
-    <p class='text-center'>No items to display :(</p>
+    <p class='text-center text-2xl'>No items to display :(</p>
   <% else %>
     <%= render 'application/divider' %>
   <% end %>

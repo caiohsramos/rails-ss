@@ -11,7 +11,8 @@ RSpec.describe CreateFeed do
     allow(RefreshFeedJob).to receive(:perform_now)
     allow(RemoteFeed).to receive(:from_link).and_return(double(title: 'title',
                                                                description: 'description',
-                                                               link: 'link'))
+                                                               link: 'link',
+                                                               icon: 'icon'))
   end
 
   describe '.call' do

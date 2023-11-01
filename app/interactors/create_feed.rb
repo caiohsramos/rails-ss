@@ -20,7 +20,8 @@ class CreateFeed
     {
       title: feed.title,
       description: feed.description,
-      link: feed.link
+      link: feed.link,
+      icon: feed.icon
     }
   end
 end

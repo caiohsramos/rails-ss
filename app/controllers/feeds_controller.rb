@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FeedsController < ApplicationController
-  before_action :set_feed, only: %i[show edit update destroy]
+  before_action :set_feed, only: %i[show edit update destroy icon]
 
   # GET /feeds
   def index
@@ -54,11 +54,15 @@ class FeedsController < ApplicationController
     redirect_back_or_to root_path, notice: 'Refreshing feeds...'
   end
 
+  def icon
+    send_data @feed.icon, type: 'image/png', disposition: 'inline'
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_feed
-    @feed = Feed.find(params[:id])
+    @feed = Feed.find(params[:id] || params[:feed_id])
   end
 
   # Only allow a list of trusted parameters through.

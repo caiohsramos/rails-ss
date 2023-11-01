@@ -21,4 +21,19 @@ RSpec.describe Item do
                                                                                               starred: 'starred' })
     }
   end
+
+  describe 'scopes' do
+    before { create_list(:item, 5) }
+
+    describe '.with_filter' do
+      it 'does not filter with all' do
+        expect(described_class.with_filter('all').count).to eq(5)
+      end
+
+      it 'filters with statuses' do
+        expect(described_class.with_filter('unread').count).to eq(5)
+        expect(described_class.with_filter('starred').count).to eq(0)
+      end
+    end
+  end
 end

@@ -11,8 +11,9 @@
 <% elsif render_list_item?(list_item, @sidebar_metrics, @settings.selection, @settings.filter) %>
   <li class="py-2" id=<%= dom_id(list_item, :list_item) %>>
     <%= link_to list_item, class: class_names('flex', 'justify-between', { active: list_item == @settings.selection }) do %>
-      <div class='flex gap-1'>
+      <div class='flex gap-2 items-center'>
         <%= render 'icons/chevron-down' if list_item.respond_to?(:feeds) %>
+        <%= image_tag feed_icon_path(list_item), size: '16x16', alt: list_item.title, class: 'h-4' if list_item.try(:icon).present? %>
         <%= list_item.title %>
       </div>
       <% if render_badges?(@settings.filter) %>

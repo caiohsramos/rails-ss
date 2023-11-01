@@ -21,6 +21,14 @@ class RemoteFeed
 
   def description = feed.try(:description)
 
+  def icon
+    host = URI.parse(url).host
+    response = Faraday.new { |f| f.response :follow_redirects }.get("https://icons.duckduckgo.com/ip3/#{host}.ico")
+    return if response.status == 404
+
+    response.body
+  end
+
   class Item
     attr_reader :entry
 

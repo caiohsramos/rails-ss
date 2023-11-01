@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_31_212635) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_31_221151) do
   create_table "feeds", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_212635) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "folder_id"
+    t.binary "icon"
     t.index ["folder_id"], name: "index_feeds_on_folder_id"
   end
 

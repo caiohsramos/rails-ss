@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
     get :list, on: :collection
     put :refresh, on: :collection
+    get :icon
   end
   resources :items, only: %i[update index] do
     put :all_read, on: :collection

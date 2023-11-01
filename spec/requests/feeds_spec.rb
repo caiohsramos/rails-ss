@@ -86,4 +86,13 @@ RSpec.describe 'Feeds' do
       end
     end
   end
+
+  describe 'GET icon' do
+    let(:feed) { create(:feed, icon: 'icon') }
+
+    it 'returns the icon' do
+      get("/feeds/#{feed.id}/icon")
+      expect(response.body).to eq('icon')
+    end
+  end
 end
