@@ -13,4 +13,11 @@ module ApplicationHelper
       all_read_items_path
     end
   end
+
+  def hotkey_actions
+    ['keydown.1->hotkeys#selectAll',
+     'keydown.2->hotkeys#selectUnread',
+     'keydown.3->hotkeys#selectStarred',
+     'keydown.shift+r->hotkeys#readAll'].join(' ')
+  end
 end

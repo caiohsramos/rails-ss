@@ -26,7 +26,7 @@
       <% end %>
     </div>
     <div class="tooltip tooltip-bottom" data-tip="Mark read (selected)">
-      <%= form_with url: all_read_form_path(@settings.selection), method: :put do |f| %>
+      <%= form_with url: all_read_form_path(@settings.selection), method: :put, data: { hotkeys_target: 'readAllForm' } do |f| %>
         <%= f.button type: :submit, class: 'btn btn-ghost btn-circle' do %>
           <%= render 'icons/check'%>
         <% end %>
