@@ -1,7 +1,7 @@
 <%# locals: (path_to_render:) -%>
 <div class="container py-5 px-3 md:px-5">
   <div class="flex flex-col gap-4">
-    <div id="items"></div>
+    <div id="items" data-controller='content' data-action="hotkeys:nextItem@window->content#highlightNext hotkeys:previousItem@window->content#highlightPrevious hotkeys:toggleItem@window->content#toggleCurrent"></div>
     <%= turbo_frame_tag 'items-pagination', src: path_to_render, loading: :lazy do %>
       <div class='flex justify-center p-5'>
         <%= render 'application/loading'%>

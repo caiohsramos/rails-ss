@@ -35,7 +35,7 @@ export default class extends Controller {
   nextFeed() {
     this.listItemTargets.forEach((listItem, idx) => {
       const isActive = listItem.classList.contains("active");
-      if (isActive && idx !== this.listItemTargets - 1) {
+      if (isActive && idx !== this.listItemTargets.length - 1) {
         Turbo.visit(this.listItemTargets[idx + 1].href);
       }
     });
@@ -47,5 +47,16 @@ export default class extends Controller {
         Turbo.visit(this.listItemTargets[idx - 1].href);
       }
     });
+  }
+
+  // j, k, o
+  nextItem() {
+    this.dispatch("nextItem");
+  }
+  previousItem() {
+    this.dispatch("previousItem");
+  }
+  toggleItem() {
+    this.dispatch("toggleItem");
   }
 }

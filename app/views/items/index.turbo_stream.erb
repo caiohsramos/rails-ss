@@ -8,7 +8,11 @@
 <% end %>
 <% if @pagy.next.present? %>
   <%= turbo_stream.replace "items-pagination" do %>
-    <%= render 'content', path_to_render: current_items_path(@settings.selection, filter: @settings.filter, page: @pagy.next, format: :turbo_stream) %>
+    <%= turbo_frame_tag 'items-pagination', src: current_items_path(@settings.selection, filter: @settings.filter, page: @pagy.next, format: :turbo_stream), loading: :lazy do %>
+      <div class='flex justify-center p-5'>
+        <%= render 'application/loading'%>
+      </div>
+    <% end %>
   <% end %>
 <% else %>
   <%= turbo_stream.replace "items-pagination" %>

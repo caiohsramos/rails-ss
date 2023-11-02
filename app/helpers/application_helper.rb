@@ -14,7 +14,7 @@ module ApplicationHelper
     end
   end
 
-  def hotkey_actions
+  def hotkey_actions # rubocop:disable Metrics/MethodLength
     [
       'keydown.1->hotkeys#selectAll',
       'keydown.2->hotkeys#selectUnread',
@@ -23,7 +23,10 @@ module ApplicationHelper
       'keydown.f->hotkeys#scrollContentDown',
       'keydown.b->hotkeys#scrollContentUp',
       'keydown.h->hotkeys#previousFeed',
-      'keydown.l->hotkeys#nextFeed'
+      'keydown.l->hotkeys#nextFeed',
+      'keydown.j->hotkeys#nextItem',
+      'keydown.k->hotkeys#previousItem',
+      'keydown.t->hotkeys#toggleItem'
     ].join(' ')
   end
 end
