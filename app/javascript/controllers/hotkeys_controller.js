@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["filterSelect", "readAllForm"];
+  static targets = ["filterSelect", "readAllForm", "listItem"];
 
   // 1, 2, 3
   selectAll() {
@@ -13,7 +13,6 @@ export default class extends Controller {
   selectStarred() {
     this.selectFilter(2);
   }
-
   selectFilter(index) {
     this.filterSelectTarget.selectedIndex = index;
     this.filterSelectTarget.form.requestSubmit();
@@ -30,5 +29,23 @@ export default class extends Controller {
   }
   scrollContentUp() {
     window.scrollBy(0, -200);
+  }
+
+  // h, l
+  nextFeed() {
+    this.listItemTargets.forEach((listItem, idx) => {
+      const isActive = listItem.classList.contains("active");
+      if (isActive && idx !== this.listItemTargets - 1) {
+        Turbo.visit(this.listItemTargets[idx + 1].href);
+      }
+    });
+  }
+  previousFeed() {
+    this.listItemTargets.forEach((listItem, idx) => {
+      const isActive = listItem.classList.contains("active");
+      if (isActive && idx !== 0) {
+        Turbo.visit(this.listItemTargets[idx - 1].href);
+      }
+    });
   }
 }

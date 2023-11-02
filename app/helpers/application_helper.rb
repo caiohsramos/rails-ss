@@ -15,11 +15,15 @@ module ApplicationHelper
   end
 
   def hotkey_actions
-    ['keydown.1->hotkeys#selectAll',
-     'keydown.2->hotkeys#selectUnread',
-     'keydown.3->hotkeys#selectStarred',
-     'keydown.shift+r->hotkeys#readAll',
-     'keydown.f->hotkeys#scrollContentDown',
-     'keydown.b->hotkeys#scrollContentUp'].join(' ')
+    [
+      'keydown.1->hotkeys#selectAll',
+      'keydown.2->hotkeys#selectUnread',
+      'keydown.3->hotkeys#selectStarred',
+      'keydown.shift+r->hotkeys#readAll',
+      'keydown.f->hotkeys#scrollContentDown',
+      'keydown.b->hotkeys#scrollContentUp',
+      'keydown.h->hotkeys#previousFeed',
+      'keydown.l->hotkeys#nextFeed'
+    ].join(' ')
   end
 end
