@@ -26,7 +26,10 @@ module ApplicationHelper
       'keydown.l->hotkeys#nextFeed',
       'keydown.j->hotkeys#nextItem',
       'keydown.k->hotkeys#previousItem',
-      'keydown.t->hotkeys#toggleItem'
+      'keydown.t->hotkeys#toggleItem',
+      'keydown.r->hotkeys#toggleRead',
+      'keydown.s->hotkeys#toggleStarred',
+      'keydown.o->hotkeys#openLink'
     ].join(' ')
   end
 end

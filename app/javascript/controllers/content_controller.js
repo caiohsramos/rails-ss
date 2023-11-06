@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["item", "details"];
+  static targets = ["item", "details", "itemLink", "itemRead", "itemStarred"];
 
   initialize() {
     this.index = 0;
@@ -26,5 +26,17 @@ export default class extends Controller {
   toggleCurrent() {
     this.detailsTargets[this.index].open =
       !this.detailsTargets[this.index].open;
+  }
+
+  toggleReadCurrent() {
+    this.itemReadTargets[this.index].click();
+  }
+
+  toggleStarredCurrent() {
+    this.itemStarredTargets[this.index].click();
+  }
+
+  openCurrent() {
+    this.itemLinkTargets[this.index].click();
   }
 }

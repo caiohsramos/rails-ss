@@ -59,4 +59,17 @@ export default class extends Controller {
   toggleItem() {
     this.dispatch("toggleItem");
   }
+
+  // r, s
+  toggleRead() {
+    this.dispatch("toggleRead");
+  }
+  toggleStarred() {
+    this.dispatch("toggleStarred");
+  }
+
+  // o
+  openLink() {
+    this.dispatch("openLink");
+  }
 }

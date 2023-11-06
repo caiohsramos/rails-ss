@@ -16,7 +16,7 @@
       <div class="flex justify-center collapse-content">
         <article class="prose">
           <%= image_tag(item.image) if item.image.present? %>
-          <%= simple_format(item.content || item.description, {}, { sanitize: false }) %>
+          <%= simple_format(item.content || item.description, {}, { sanitize_options: {tags: ['video'], attributes: ['src', 'controls', 'poster', 'style'] } }) %>
         </article>
       </div>
     </details>
