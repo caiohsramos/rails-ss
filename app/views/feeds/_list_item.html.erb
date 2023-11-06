@@ -1,7 +1,7 @@
 <%# locals: (list_item: nil, list_item_counter: 0, list_item_iteration: 0) -%>
 <% if list_item.blank? %>
   <li class="py-2" id='all-list-item'>
-    <%= link_to root_path, class: class_names('flex', 'justify-between', { active: @settings.selection.blank? }) do %>
+    <%= link_to root_path, data: { hotkeys_target: 'listItem' }, class: class_names('flex', 'justify-between', { active: @settings.selection.blank? }) do %>
       All feeds
       <% if render_badges?(@settings.filter) %>
         <div class="badge"><%= @sidebar_metrics.send(@settings.filter).all %></div>
@@ -10,7 +10,7 @@
   </li>
 <% elsif render_list_item?(list_item, @sidebar_metrics, @settings.selection, @settings.filter) %>
   <li class="py-2" id=<%= dom_id(list_item, :list_item) %>>
-    <%= link_to list_item, class: class_names('flex', 'justify-between', { active: list_item == @settings.selection }) do %>
+    <%= link_to list_item, data: { hotkeys_target: 'listItem' }, class: class_names('flex', 'justify-between', { active: list_item == @settings.selection }) do %>
       <div class='flex gap-2 items-center'>
         <%= render 'icons/chevron-down' if list_item.respond_to?(:feeds) %>
         <%= image_tag feed_icon_path(list_item), size: '16x16', alt: list_item.title, class: 'h-4' if list_item.try(:icon).present? %>

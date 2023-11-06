@@ -1,4 +1,4 @@
-<div class='flex flex-col gap-3' data-controller='itemactions' data-itemactions-item-status-value="<%= item.status %>">
+<div class='flex flex-col gap-3 scroll-mt-20' data-controller='itemactions' data-itemactions-item-status-value="<%= item.status %>" data-content-target='item'>
   <div class='flex gap-2 items-center'>
     <%= render 'actions', item: item %>
     <%= image_tag feed_icon_path(item.feed), size: '16x16', alt: item.feed.title, class: 'h-4' if item.feed.try(:icon).present? %>
@@ -6,7 +6,7 @@
   </div>
   <%= form_with model: item, data: { itemactions_target: 'form' } do |f| %>
     <%= f.hidden_field(:status, value: :read) %>
-    <details class="collapse collapse-plus border border-base-300 bg-base-200" data-action="toggle->itemactions#submitForm">
+    <details class="collapse collapse-plus border border-base-300 bg-base-200" data-content-target='details' data-action="toggle->itemactions#submitForm toggle->content#setIndex" data-content-id-param='<%= item_counter %>'>
       <summary class="collapse-title text-xl font-medium">
         <div class='flex flex-col gap-2'>
           <p><%= item.title %></p>
@@ -16,7 +16,7 @@
       <div class="flex justify-center collapse-content">
         <article class="prose">
           <%= image_tag(item.image) if item.image.present? %>
-          <%= simple_format(item.content || item.description, {}, { sanitize: false }) %>
+          <%= simple_format(item.content || item.description, {}, { sanitize_options: {tags: ['video'], attributes: ['src', 'controls', 'poster', 'style'] } }) %>
         </article>
       </div>
     </details>
