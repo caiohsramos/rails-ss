@@ -32,4 +32,15 @@ module ApplicationHelper
       'keydown.o->hotkeys#openLink'
     ].join(' ')
   end
+
+  def content_actions
+    [
+      'hotkeys:nextItem@window->content#highlightNext',
+      'hotkeys:previousItem@window->content#highlightPrevious',
+      'hotkeys:toggleItem@window->content#toggleCurrent',
+      'hotkeys:openLink@window->content#openCurrent',
+      'hotkeys:toggleRead@window->content#toggleReadCurrent',
+      'hotkeys:toggleStarred@window->content#toggleStarredCurrent'
+    ].join(' ')
+  end
 end
