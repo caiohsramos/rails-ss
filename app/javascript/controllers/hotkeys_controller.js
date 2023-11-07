@@ -4,13 +4,16 @@ export default class extends Controller {
   static targets = ["filterSelect", "readAllForm", "listItem"];
 
   // 1, 2, 3
-  selectAll() {
+  selectAll(e) {
+    if (this.shouldIgnore(e)) return;
     this.selectFilter(0);
   }
-  selectUnread() {
+  selectUnread(e) {
+    if (this.shouldIgnore(e)) return;
     this.selectFilter(1);
   }
-  selectStarred() {
+  selectStarred(e) {
+    if (this.shouldIgnore(e)) return;
     this.selectFilter(2);
   }
   selectFilter(index) {
@@ -19,20 +22,24 @@ export default class extends Controller {
   }
 
   // shift+r
-  readAll() {
+  readAll(e) {
+    if (this.shouldIgnore(e)) return;
     this.readAllFormTarget.requestSubmit();
   }
 
   // f, b
-  scrollContentDown() {
+  scrollContentDown(e) {
+    if (this.shouldIgnore(e)) return;
     window.scrollBy(0, 200);
   }
-  scrollContentUp() {
+  scrollContentUp(e) {
+    if (this.shouldIgnore(e)) return;
     window.scrollBy(0, -200);
   }
 
   // h, l
-  nextFeed() {
+  nextFeed(e) {
+    if (this.shouldIgnore(e)) return;
     this.listItemTargets.forEach((listItem, idx) => {
       const isActive = listItem.classList.contains("active");
       if (isActive && idx !== this.listItemTargets.length - 1) {
@@ -40,7 +47,8 @@ export default class extends Controller {
       }
     });
   }
-  previousFeed() {
+  previousFeed(e) {
+    if (this.shouldIgnore(e)) return;
     this.listItemTargets.forEach((listItem, idx) => {
       const isActive = listItem.classList.contains("active");
       if (isActive && idx !== 0) {
@@ -50,26 +58,61 @@ export default class extends Controller {
   }
 
   // j, k, o
-  nextItem() {
+  nextItem(e) {
+    if (this.shouldIgnore(e)) return;
     this.dispatch("nextItem");
   }
-  previousItem() {
+  previousItem(e) {
+    if (this.shouldIgnore(e)) return;
     this.dispatch("previousItem");
   }
-  toggleItem() {
+  toggleItem(e) {
+    if (this.shouldIgnore(e)) return;
     this.dispatch("toggleItem");
   }
 
   // r, s
-  toggleRead() {
+  toggleRead(e) {
+    if (this.shouldIgnore(e)) return;
     this.dispatch("toggleRead");
   }
-  toggleStarred() {
+  toggleStarred(e) {
+    if (this.shouldIgnore(e)) return;
     this.dispatch("toggleStarred");
   }
 
   // o
-  openLink() {
+  openLink(e) {
+    if (this.shouldIgnore(e)) return;
     this.dispatch("openLink");
+  }
+
+  shouldIgnore(e) {
+    return this.isTextBox(e.target) || e.metaKey || e.ctrlKey || e.altKey;
+  }
+
+  isTextBox(element) {
+    var tagName = element.tagName.toLowerCase();
+    // Input elements that aren't text
+    var inputBlocklist = [
+      "button",
+      "checkbox",
+      "color",
+      "file",
+      "hidden",
+      "image",
+      "radio",
+      "range",
+      "reset",
+      "search",
+      "submit",
+    ];
+
+    return (
+      tagName === "textarea" ||
+      (tagName === "input" &&
+        inputBlocklist.indexOf(element.getAttribute("type").toLowerCase()) ==
+          -1)
+    );
   }
 }

@@ -17,13 +17,17 @@ export default class extends Controller {
   highlightNext() {
     if (this.index === this.itemTargets.length) return;
     this.setIndex({ params: { id: this.index + 1 } });
-    this.itemTargets[this.index].scrollIntoView();
+    this.itemTargets[this.index].scrollIntoView({
+      block: "nearest",
+    });
   }
 
   highlightPrevious() {
     if (this.index === 0) return;
     this.setIndex({ params: { id: this.index - 1 } });
-    this.itemTargets[this.index].scrollIntoView();
+    this.itemTargets[this.index].scrollIntoView({
+      block: "nearest",
+    });
   }
 
   toggleCurrent() {

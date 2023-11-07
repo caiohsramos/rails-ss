@@ -26,6 +26,7 @@
             </ul>
           </details>
         </li>
+        <li><%= link_to 'Hotkey navigation', pages_hotkeys_path, { onclick: 'modal.showModal()', data: { turbo_frame: 'modal-frame' } }%></li>
       </ul>
       <%= form_with scope: :settings, url: settings_path, method: :put, class: 'form-control' do |form| %>
         <%= form.label :filter, 'Filter', class: 'label' %>

@@ -1,4 +1,4 @@
-<div class='flex flex-col gap-3 scroll-mt-20' data-controller='itemactions' data-itemactions-item-status-value="<%= item.status %>" data-content-target='item'>
+<div class='flex flex-col gap-3 scroll-my-20' data-controller='itemactions' data-itemactions-item-status-value="<%= item.status %>" data-content-target='item'>
   <div class='flex gap-2 items-center'>
     <%= render 'actions', item: item %>
     <%= image_tag feed_icon_path(item.feed), size: '16x16', alt: item.feed.title, class: 'h-4' if item.feed.try(:icon).present? %>
@@ -16,7 +16,7 @@
       <div class="flex justify-center collapse-content">
         <article class="prose">
           <%= image_tag(item.image) if item.image.present? %>
-          <%= simple_format(item.content || item.description, {}, { sanitize_options: {tags: ['video'], attributes: ['src', 'controls', 'poster', 'style'] } }) %>
+          <%= simple_format(item.content || item.description, {}, { sanitize: false }) %>
         </article>
       </div>
     </details>

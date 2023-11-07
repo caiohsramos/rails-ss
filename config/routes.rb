@@ -30,4 +30,7 @@ Rails.application.routes.draw do
     post :import
     # get :export
   end
+  namespace :pages do
+    get :hotkeys
+  end
 end
