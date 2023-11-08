@@ -9,12 +9,12 @@
     <details class="collapse collapse-plus border border-base-300 bg-base-200" data-content-target='details' data-action="toggle->itemactions#submitForm toggle->content#setIndex" data-content-id-param='<%= item_counter %>'>
       <summary class="collapse-title text-xl font-medium">
         <div class='flex flex-col gap-2'>
-          <p><%= item.title %></p>
+          <p class='break-words'><%= item.title %></p>
           <p class='font-thin'><%= "#{time_ago_in_words(item&.date || item.created_at)} from #{item&.author || item.feed.title}"%></p>
         </div>
       </summary>
       <div class="flex justify-center collapse-content">
-        <article class="prose">
+        <article class="prose w-full break-words">
           <%= image_tag(item.image) if item.image.present? %>
           <%= simple_format(item.content || item.description, {}, { sanitize: false }) %>
         </article>
