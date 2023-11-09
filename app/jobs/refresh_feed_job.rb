@@ -5,6 +5,7 @@ class RefreshFeedJob < ApplicationJob
 
   def perform(feed_id)
     @feed = Feed.find(feed_id)
+    @feed.refresh_state.start!
     rss.items.map do |item|
       next if feed.items.exists?(guid: item.guid)
 
@@ -12,6 +13,8 @@ class RefreshFeedJob < ApplicationJob
     rescue ActiveRecord::RecordInvalid
       next
     end
+  ensure
+    @feed.refresh_state.finish!
   end
 
   private
@@ -20,6 +23,7 @@ class RefreshFeedJob < ApplicationJob
 
   def rss
     @rss ||= RemoteFeed.from_link(feed.feed_link)
+    # TODO: add possible errors to feed.refresh_state.error
   end
 
   def create_item(feed, item)

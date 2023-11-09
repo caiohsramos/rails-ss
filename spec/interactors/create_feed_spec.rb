@@ -20,6 +20,10 @@ RSpec.describe CreateFeed do
       it 'creates new feed' do
         expect { context }.to change(Feed, :count).by(1)
       end
+
+      it 'creates new refresh state' do
+        expect { context }.to change(RefreshState, :count).by(1)
+      end
     end
 
     context 'with incomplete params' do
@@ -27,6 +31,10 @@ RSpec.describe CreateFeed do
 
       it 'does not create feed' do
         expect { context }.not_to change(Feed, :count)
+      end
+
+      it 'does not create refresh state' do
+        expect { context }.not_to change(RefreshState, :count)
       end
     end
   end

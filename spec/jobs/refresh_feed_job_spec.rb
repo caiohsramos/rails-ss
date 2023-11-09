@@ -39,9 +39,17 @@ RSpec.describe RefreshFeedJob do
 
     let(:feed) { create(:feed) }
     let(:feed_link) { feed.feed_link }
+    let(:refresh_state) { feed.refresh_state }
 
     it 'creates items' do
       expect { perform }.to change(Item, :count).by(2)
+    end
+
+    it 'updates refresh state' do
+      expect do
+        perform
+        refresh_state.reload
+      end.to change(refresh_state, :refreshed_at)
     end
   end
 end

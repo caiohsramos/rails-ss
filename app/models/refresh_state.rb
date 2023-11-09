@@ -13,7 +13,7 @@ class RefreshState < ApplicationRecord
       transitions from: %i[error success], to: :refreshing
     end
 
-    event :finish do
+    event :finish, success: -> { update(refreshed_at: Time.zone.now) } do
       transitions from: :refreshing, to: :error, if: -> { error.present? }
       transitions from: :refreshing, to: :success
     end

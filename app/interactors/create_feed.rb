@@ -5,9 +5,11 @@ class CreateFeed
   delegate :feed_link, :folder_id, to: :context
 
   def call
-    context.feed = Feed.new({ feed_link:, folder_id:, **rss_data })
-    if context.feed.save
-      RefreshFeedJob.perform_now(context.feed.id)
+    feed = Feed.new({ feed_link:, folder_id:, **rss_data })
+    feed.build_refresh_state
+    if feed.save
+      RefreshFeedJob.perform_now(feed.id)
+      context.feed = feed
     else
       context.fail!
     end
