@@ -6,6 +6,7 @@ RSpec.describe Feed do
   describe 'associations' do
     it { is_expected.to have_many(:items).dependent(:destroy) }
     it { is_expected.to belong_to(:folder).optional }
+    it { is_expected.to have_one(:refresh_state).dependent(:destroy) }
   end
 
   describe 'validations' do
