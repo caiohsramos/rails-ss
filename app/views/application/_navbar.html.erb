@@ -5,19 +5,11 @@
         <%= render 'icons/bars-3' %>
       </label>
     </div>
-    <%= link_to 'Rails-ss', root_path, class: 'btn btn-ghost normal-case text-xl' %>
+    <%= link_to 'Rails-ss', root_path, class: 'btn btn-ghost normal-case text-xl pl-0 lg:pl-4' %>
   </div>
   <div class="navbar-center">
   </div>
   <div class="navbar-end">
-    <div class="tooltip tooltip-bottom" data-tip="Import feeds">
-      <%= form_with url: subscriptions_import_path do |f| %>
-        <%= f.label :import_file, class: 'btn btn-ghost btn-circle' do %>
-          <%= render 'icons/arrow-up-tray' %>
-        <% end %>
-        <%= f.file_field :import_file, class: 'hidden', onchange: 'this.form.requestSubmit()' %>
-      <% end %>
-    </div>
     <div class="tooltip tooltip-bottom" data-tip="Refresh feeds">
       <%= form_with url: refresh_feeds_path, method: :put do |f| %>
         <%= f.button type: :submit, class: 'btn btn-ghost btn-circle' do %>

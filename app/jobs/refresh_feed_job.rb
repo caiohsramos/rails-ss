@@ -6,13 +6,7 @@ class RefreshFeedJob < ApplicationJob
   def perform(feed_id)
     @feed = Feed.find(feed_id)
     @feed.refresh_state.start!
-    rss.items.map do |item|
-      next if feed.items.exists?(guid: item.guid)
-
-      create_item(feed, item)
-    rescue ActiveRecord::RecordInvalid
-      next
-    end
+    create_items
   ensure
     @feed.refresh_state.finish!
   end
@@ -21,9 +15,25 @@ class RefreshFeedJob < ApplicationJob
 
   attr_reader :feed
 
+  def create_items
+    rss.items.map do |item|
+      next if feed.items.exists?(guid: item.guid)
+
+      create_item(feed, item)
+    rescue ActiveRecord::RecordInvalid => e
+      add_error(e)
+      next
+    end
+  end
+
   def rss
-    @rss ||= RemoteFeed.from_link(feed.feed_link)
-    # TODO: add possible errors to feed.refresh_state.error
+    RemoteFeed.from_link(feed.feed_link)
+  rescue StandardError => e
+    add_error(e)
+  end
+
+  def add_error(error)
+    feed.refresh_state.update(error: error.message)
   end
 
   def create_item(feed, item)

@@ -10,7 +10,7 @@
       <summary class="collapse-title text-xl font-medium">
         <div class='flex flex-col gap-2'>
           <p class='break-words'><%= item.title %></p>
-          <p class='font-thin'><%= "#{time_ago_in_words(item&.date || item.created_at)} from #{item&.author || item.feed.title}"%></p>
+          <p class='font-thin'><%= "#{time_ago_in_words(item&.date || item.created_at)} ago from #{item&.author || item.feed.title}"%></p>
         </div>
       </summary>
       <div class="flex justify-center collapse-content">

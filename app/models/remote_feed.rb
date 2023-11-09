@@ -6,7 +6,10 @@ class RemoteFeed
   delegate :title, :url, :entries, to: :feed
 
   def self.from_link(feed_link)
-    response = Faraday.new { |f| f.response :follow_redirects }.get(feed_link)
+    response = Faraday.new do |f|
+      f.response :raise_error
+      f.response :follow_redirects
+    end.get(feed_link)
     feed = Feedjira.parse(response.body)
     new(feed)
   end

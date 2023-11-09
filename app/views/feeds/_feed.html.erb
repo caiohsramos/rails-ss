@@ -1,10 +1,14 @@
 <%# locals: (feed:, feed_counter: 0, feed_iteration: nil) -%>
-<div id="<%= dom_id feed %>" class='collapse bg-base-200'>
+<div id="<%= dom_id feed %>" class='collapse bg-base-200 <%= "border border-error" if feed.refresh_state.error?  %>'>
   <%= radio_button_tag('feed-accordion', feed_counter, feed_counter.zero?, value: nil) %>
   <div class="collapse-title text-xl font-medium px-6">
     <p class='text-base'><%= feed.title %></p>
+    <p class='font-thin'>Last refreshed <%= time_ago_in_words feed.refresh_state.refreshed_at %> ago</p>
   </div>
   <div class="collapse-content">
+    <% if feed.refresh_state.error? %>
+      <p class='italic'>Failed with error: <%= feed.refresh_state.error %></p>
+    <% end %>
     <p><%= feed.description %></p>
     <div class='flex justify-center md:justify-start pt-4'>
       <ul class="menu menu-horizontal bg-base-300 rounded-box">

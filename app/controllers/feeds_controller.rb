@@ -51,7 +51,7 @@ class FeedsController < ApplicationController
 
   def refresh
     RefreshAllFeedsJob.perform_later
-    redirect_back_or_to root_path, notice: 'Refreshing feeds...'
+    redirect_back_or_to root_path, notice: 'Refreshing feeds. Reload the page to update'
   end
 
   def icon
