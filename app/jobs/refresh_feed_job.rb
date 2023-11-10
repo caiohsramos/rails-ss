@@ -30,6 +30,7 @@ class RefreshFeedJob < ApplicationJob
     RemoteFeed.from_link(feed.feed_link)
   rescue StandardError => e
     add_error(e)
+    RemoteFeed.empty
   end
 
   def add_error(error)

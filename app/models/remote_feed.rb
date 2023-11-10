@@ -14,6 +14,11 @@ class RemoteFeed
     new(feed)
   end
 
+  def self.empty
+    empty_feed = Data.define(:entries)[[]]
+    new(empty_feed)
+  end
+
   def initialize(feed)
     @feed = feed
   end

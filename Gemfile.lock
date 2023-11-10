@@ -356,6 +356,7 @@ DEPENDENCIES
   litestack (~> 0.4.1)
   opmlparser (~> 1.0)
   pagy (~> 6.1)
+  parallel (~> 1.23)
   propshaft
   puma (>= 5.0)
   rails (~> 7.1.1)

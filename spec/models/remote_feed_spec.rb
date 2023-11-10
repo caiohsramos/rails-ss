@@ -12,4 +12,12 @@ RSpec.describe RemoteFeed do
       expect(result.items.count).to eq(5)
     end
   end
+
+  describe '.empty' do
+    it 'returns empty field' do
+      result = described_class.empty
+      expect(result).to be_instance_of(described_class)
+      expect(result.items).to eq([])
+    end
+  end
 end
