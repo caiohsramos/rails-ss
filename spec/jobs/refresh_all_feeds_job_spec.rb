@@ -7,8 +7,8 @@ RSpec.describe RefreshAllFeedsJob do
     before { create_list(:feed, 5) }
 
     it 'enqueues RefreshFeedJob five times' do
+      expect(RefreshFeedJob).to receive(:perform_now).exactly(5).times
       described_class.new.perform
-      expect(RefreshFeedJob).to have_been_enqueued.exactly(5).times
     end
   end
 end

@@ -95,4 +95,14 @@ RSpec.describe 'Feeds' do
       expect(response.body).to eq('icon')
     end
   end
+
+  describe 'PUT refresh' do
+    let(:feed) { create(:feed) }
+
+    it 'calls refresh and redirect' do
+      expect(RefreshAllFeedsJob).to receive(:perform_now)
+      put('/feeds/refresh')
+      expect(response).to redirect_to(root_url)
+    end
+  end
 end

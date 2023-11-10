@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.5.0)
+      concurrent-ruby (~> 1.0)
     actioncable (7.1.1)
       actionpack (= 7.1.1)
       activesupport (= 7.1.1)
@@ -339,6 +341,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aasm
   bootsnap
   brakeman
   debug
@@ -353,6 +356,7 @@ DEPENDENCIES
   litestack (~> 0.4.1)
   opmlparser (~> 1.0)
   pagy (~> 6.1)
+  parallel (~> 1.23)
   propshaft
   puma (>= 5.0)
   rails (~> 7.1.1)
