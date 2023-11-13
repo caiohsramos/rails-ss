@@ -142,7 +142,7 @@ GEM
       activesupport (>= 5.0.0)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
-    litestack (0.4.1)
+    litestack (0.4.2)
       erubi
       hanami-router
       oj
@@ -353,7 +353,7 @@ DEPENDENCIES
   importmap-rails
   interactor (~> 3.0)
   jbuilder
-  litestack (~> 0.4.1)
+  litestack (~> 0.4.2)
   opmlparser (~> 1.0)
   pagy (~> 6.2)
   parallel (~> 1.23)
