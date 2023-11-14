@@ -1,1 +1,1 @@
-<%= render 'content', path_to_render: folder_items_path(@folder.id, filter: @settings.filter, format: :turbo_stream) %>
+<%= render 'content', path_to_render: folder_items_path(@folder.id, filter: @settings.filter, q: params[:q], format: :turbo_stream) %>

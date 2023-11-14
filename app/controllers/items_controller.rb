@@ -6,7 +6,10 @@ class ItemsController < ApplicationController
 
   def index
     params.with_defaults!(filter: 'all')
-    @pagy, @items = pagy_countless(scoped_items.with_filter(params[:filter]), items: 30)
+    filtered_items = scoped_items.with_filter(params[:filter])
+    filtered_items = filtered_items.search(params[:q]) if params[:q].present?
+
+    @pagy, @items = pagy_countless(filtered_items, items: 30)
   end
 
   def update

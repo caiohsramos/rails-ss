@@ -17,15 +17,12 @@
         <% end %>
       <% end %>
     </div>
-    <div class="tooltip tooltip-bottom" data-tip="Mark read (selected)">
+    <div class="tooltip tooltip-left" data-tip="Mark read (selected)">
       <%= form_with url: all_read_form_path(@settings.selection), method: :put, data: { hotkeys_target: 'readAllForm', turbo_confirm: 'Mark read?' } do |f| %>
         <%= f.button type: :submit, class: 'btn btn-ghost btn-circle' do %>
-          <%= render 'icons/check'%>
+          <%= render 'icons/check' %>
         <% end %>
       <% end %>
     </div>
-    <button class="btn btn-ghost btn-circle">
-      <%= render 'icons/search' %>
-    </button>
   </div>
 </div>

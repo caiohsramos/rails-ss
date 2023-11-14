@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["filterSelect", "readAllForm", "listItem"];
+  static targets = ["filterSelect", "readAllForm", "listItem", "search"];
 
   // 1, 2, 3
   selectAll(e) {
@@ -85,6 +85,12 @@ export default class extends Controller {
   openLink(e) {
     if (this.shouldIgnore(e)) return;
     this.dispatch("openLink");
+  }
+
+  // slash (/)
+  focusSearch(e) {
+    e.preventDefault();
+    this.searchTarget.focus();
   }
 
   shouldIgnore(e) {

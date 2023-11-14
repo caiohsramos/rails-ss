@@ -9,7 +9,7 @@
     <% end %>
   </li>
 <% elsif render_list_item?(list_item, @sidebar_metrics, @settings.selection, @settings.filter) %>
-  <li class="py-2" id=<%= dom_id(list_item, :list_item) %>>
+  <li class="py-2" id="<%= dom_id(list_item, :list_item) %>">
     <%= link_to list_item, data: { hotkeys_target: 'listItem' }, class: class_names('flex', 'justify-between', { active: list_item == @settings.selection, 'border border-error' => list_item.try(:refresh_state)&.error? }) do %>
       <div class='flex gap-2 items-center'>
         <%= render 'icons/chevron-down' if list_item.respond_to?(:feeds) %>
