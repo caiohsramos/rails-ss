@@ -28,7 +28,8 @@ module ApplicationHelper
       'keydown.t->hotkeys#toggleItem',
       'keydown.r->hotkeys#toggleRead',
       'keydown.s->hotkeys#toggleStarred',
-      'keydown.o->hotkeys#openLink'
+      'keydown.o->hotkeys#openLink',
+      'keydown.slash->hotkeys#focusSearch'
     ].join(' ')
   end
 

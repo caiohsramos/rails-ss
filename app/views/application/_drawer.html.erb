@@ -6,7 +6,7 @@
   </div>
   <div class="drawer-side z-20">
     <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-    <div class='flex flex-col gap-3 p-1 min-h-full bg-base-200 w-min lg:p-3'>
+    <div class='flex flex-col gap-3 p-1 min-h-full bg-base-200 max-w-xs lg:p-3'>
       <ul class="menu bg-base-300 rounded-box w-full">
         <li>
           <details>
@@ -34,15 +34,18 @@
           <%= f.file_field :import_file, class: 'hidden', onchange: 'this.form.requestSubmit()' %>
         <% end %>
       </ul>
-      <%= form_with url: current_path(@settings.selection), method: :get, class: 'form-control', data: { turbo_frame: 'content', turbo_action: 'advance' } do |form| %>
-        <%= form.label :q, 'Search', class: 'label' %>
-        <%= form.text_field :q, class: "input input-sm w-full max-w-xs", placeholder: 'Search', value: params[:q] %>
+      <%= form_with url: current_path(@settings.selection), method: :get, class: 'form-control' do |form| %>
+        <div class='flex items-center justify-between pr-2'>
+          <%= form.label :q, 'Search', class: 'label' %>
+          <%= link_to 'Clear search', current_path(@settings.selection), class: 'link' %>
+        </div>
+        <%= form.text_field :q, class: "input input-sm w-full max-w-xs", placeholder: 'Search', value: params[:q], data: { hotkeys_target: 'search' } %>
       <% end %>
       <%= form_with scope: :settings, url: settings_path, method: :put, class: 'form-control' do |form| %>
         <%= form.label :filter, 'Filter', class: 'label' %>
         <%= form.select :filter, filter_options, { selected: @settings.filter }, { class: "select select-sm w-full max-w-xs", onchange: 'this.form.requestSubmit()', data: { hotkeys_target: 'filterSelect' } } %>
       <% end %>
-      <ul class="menu text-xs">
+      <ul class="menu text-xs pl-0">
         <%= render 'feeds/list_item' %>
         <%= render partial: 'feeds/list_item', collection: @sidebar_folders, as: :list_item %>
         <%= render partial: 'feeds/list_item', collection: @sidebar_unfoldered_feeds, as: :list_item %>
