@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.1.1'
+gem 'rails', '~> 7.1.2'
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem 'propshaft'
@@ -85,14 +85,14 @@ gem 'feedjira'
 
 gem 'interactor', '~> 3.0'
 
-gem 'litestack', '~> 0.4.1'
+gem 'litestack', '~> 0.4.2'
 
 gem 'faraday'
 gem 'faraday-follow_redirects'
 
 gem 'opmlparser', '~> 1.0'
 
-gem 'pagy', '~> 6.1'
+gem 'pagy', '~> 6.2'
 
 gem 'aasm'
 
