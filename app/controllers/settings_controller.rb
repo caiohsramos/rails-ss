@@ -4,7 +4,7 @@ class SettingsController < ApplicationController
   def update
     @settings.update(settings_params)
 
-    redirect_back_or_to root_path
+    redirect_to(@settings.selection || root_path)
   end
 
   private

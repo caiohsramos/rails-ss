@@ -14,6 +14,17 @@ module ApplicationHelper
     end
   end
 
+  def current_path(current_selection, **)
+    case current_selection
+    when Feed
+      feed_path(current_selection, **)
+    when Folder
+      folder_path(current_selection, **)
+    else
+      root_path(**)
+    end
+  end
+
   def hotkey_actions # rubocop:disable Metrics/MethodLength
     [
       'keydown.1->hotkeys#selectAll',

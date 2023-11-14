@@ -1,5 +1,5 @@
 <div class="drawer lg:drawer-open">
-  <input id="drawer" type="checkbox" class="drawer-toggle">
+  <input id="drawer" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content">
     <%= render "navbar" %>
     <%= yield %>
@@ -34,6 +34,10 @@
           <%= f.file_field :import_file, class: 'hidden', onchange: 'this.form.requestSubmit()' %>
         <% end %>
       </ul>
+      <%= form_with url: current_path(@settings.selection), method: :get, class: 'form-control', data: { turbo_frame: 'content', turbo_action: 'advance' } do |form| %>
+        <%= form.label :q, 'Search', class: 'label' %>
+        <%= form.text_field :q, class: "input input-sm w-full max-w-xs", placeholder: 'Search', value: params[:q] %>
+      <% end %>
       <%= form_with scope: :settings, url: settings_path, method: :put, class: 'form-control' do |form| %>
         <%= form.label :filter, 'Filter', class: 'label' %>
         <%= form.select :filter, filter_options, { selected: @settings.filter }, { class: "select select-sm w-full max-w-xs", onchange: 'this.form.requestSubmit()', data: { hotkeys_target: 'filterSelect' } } %>
