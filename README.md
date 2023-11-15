@@ -26,9 +26,14 @@ docker run \
 
 # Screenshots
 
-<img width="1470" alt="Screenshot 2023-10-31 at 22 31 40" src="https://github.com/caiohsramos/rails-ss/assets/12804854/0a239805-b592-4e16-a8e7-d8a2d9d31dcb">
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/f84dbc6e-f52c-4662-8a13-7912e1f726d9">
 
-<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/7b609e51-eabf-4416-9a94-6ff7b4ff3a48">
+
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/eefbfef0-7bd8-4937-9b06-e6fe69584c5f">
+
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/144cdc19-b266-458d-8190-7811719c051d">
+
+
 
 ## Hotkey navigation
 
