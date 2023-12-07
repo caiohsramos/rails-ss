@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RemoteFeed
-  attr_reader :feed
+  attr_reader :feed, :feed_link
 
   delegate :title, :url, :entries, to: :feed
 
@@ -11,16 +11,17 @@ class RemoteFeed
       f.response :follow_redirects
     end.get(feed_link)
     feed = Feedjira.parse(response.body)
-    new(feed)
+    new(feed, feed_link)
   end
 
   def self.empty
     empty_feed = Data.define(:entries)[[]]
-    new(empty_feed)
+    new(empty_feed, nil)
   end
 
-  def initialize(feed)
+  def initialize(feed, feed_link)
     @feed = feed
+    @feed_link = feed_link
   end
 
   def link = url
@@ -30,7 +31,9 @@ class RemoteFeed
   def description = feed.try(:description)
 
   def icon
-    host = URI.parse(url).host
+    return if feed_link.blank?
+
+    host = URI.parse(feed_link).host
     response = Faraday.new { |f| f.response :follow_redirects }.get("https://icons.duckduckgo.com/ip3/#{host}.ico")
     return if response.status == 404
 
