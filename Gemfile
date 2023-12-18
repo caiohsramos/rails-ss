@@ -96,4 +96,4 @@ gem 'pagy', '~> 6.2'
 
 gem 'aasm'
 
-gem 'parallel', '~> 1.23'
+gem 'parallel', '~> 1.24'
