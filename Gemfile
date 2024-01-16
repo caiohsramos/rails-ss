@@ -97,3 +97,5 @@ gem 'pagy', '~> 6.3'
 gem 'aasm'
 
 gem 'parallel', '~> 1.24'
+
+gem 'solid_cache'
