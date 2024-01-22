@@ -59,7 +59,7 @@ end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'shoulda-matchers', '~> 6.0'
+  gem 'shoulda-matchers', '~> 6.1'
   gem 'vcr'
   gem 'webmock'
 end
