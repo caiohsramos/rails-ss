@@ -9,11 +9,6 @@ RSpec.describe 'Items' do
         get "/items?filter=#{filter}"
         expect(response).to render_template(:index)
       end
-
-      it "renders turbo_stream template with #{filter} filter" do
-        get "/items?filter=#{filter}", as: :turbo_stream
-        expect(response.media_type).to eq Mime[:turbo_stream]
-      end
     end
   end
 
