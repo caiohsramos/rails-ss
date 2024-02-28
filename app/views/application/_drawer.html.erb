@@ -45,7 +45,7 @@
         <%= form.label :filter, 'Filter', class: 'label' %>
         <%= form.select :filter, filter_options, { selected: @settings.filter }, { class: "select select-sm w-full max-w-xs", onchange: 'this.form.requestSubmit()', data: { hotkeys_target: 'filterSelect' } } %>
       <% end %>
-      <ul class="menu text-xs pl-0">
+      <ul class="menu text-xs pl-0" data-turbo-prefetch="false">
         <%= render 'feeds/list_item' %>
         <%= render partial: 'feeds/list_item', collection: @sidebar_folders, as: :list_item %>
         <%= render partial: 'feeds/list_item', collection: @sidebar_unfoldered_feeds, as: :list_item %>
