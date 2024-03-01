@@ -33,14 +33,14 @@ module ApplicationHelper
     ].join(' ')
   end
 
-  def content_actions
+  def items_actions
     [
-      'hotkeys:nextItem@window->content#highlightNext',
-      'hotkeys:previousItem@window->content#highlightPrevious',
-      'hotkeys:toggleItem@window->content#toggleCurrent',
-      'hotkeys:openLink@window->content#openCurrent',
-      'hotkeys:toggleRead@window->content#toggleReadCurrent',
-      'hotkeys:toggleStarred@window->content#toggleStarredCurrent'
+      'hotkeys:nextItem@window->items#highlightNext',
+      'hotkeys:previousItem@window->items#highlightPrevious',
+      'hotkeys:toggleItem@window->items#toggleCurrent',
+      'hotkeys:openLink@window->items#openCurrent',
+      'hotkeys:toggleRead@window->items#toggleReadCurrent',
+      'hotkeys:toggleStarred@window->items#toggleStarredCurrent'
     ].join(' ')
   end
 end

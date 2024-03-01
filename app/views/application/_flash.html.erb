@@ -1,12 +1,12 @@
 <% if notice.present? %>
-  <div class='toast toast-top toast-center z-20' data-controller='autohide'>
+  <div data-turbo-permanent class='toast toast-top toast-center z-20' data-controller='autohide'>
     <div class="alert alert-success">
       <span><%= notice %></span>
     </div>
   </div>
 <% end %>
 <% if alert.present? %>
-  <div class='toast toast-top toast-center z-20' data-controller='autohide'>
+  <div data-turbo-permanent class='toast toast-top toast-center z-20' data-controller='autohide'>
     <div class="alert alert-warning">
       <span><%= alert %></span>
     </div>

@@ -1,4 +1,4 @@
-<%# locals: (list_item: nil, list_item_counter: 0, list_item_iteration: 0) -%>
+<%# locals: (list_item: nil, **) -%>
 <% if list_item.blank? %>
   <li class="py-2" id='all-list-item'>
     <%= link_to root_path, data: { hotkeys_target: 'listItem' }, class: class_names('flex', 'justify-between', { active: @settings.selection.blank? }) do %>
