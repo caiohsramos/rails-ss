@@ -2,7 +2,6 @@
 
 class ItemsController < ApplicationController
   before_action :set_item, only: [:update]
-  skip_before_action :set_sidebar_data, only: [:update]
 
   def index
     params.with_defaults!(filter: 'all')
@@ -24,8 +23,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def all_read
-    scoped_items.unread.update_all(status: :read) # rubocop:disable Rails/SkipsModelValidations
+  def current_read
+    scope = @settings.selection.present? ? @settings.selection.items : Item
+    scope.unread.update_all(status: :read) # rubocop:disable Rails/SkipsModelValidations
     redirect_back_or_to root_path
   end
 

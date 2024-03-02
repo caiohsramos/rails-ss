@@ -49,43 +49,43 @@ RSpec.describe 'Items' do
     end
   end
 
-  describe 'PUT /items/all_read' do
+  describe 'PUT /items/current_read' do
     before { create_list(:item, 3) }
 
     it 'updates the items' do
-      put '/items/all_read'
+      put '/items/current_read'
       expect(Item.all.map(&:status)).to eq(%w[read read read])
     end
 
     it 'returns http found' do
-      put '/items/all_read'
+      put '/items/current_read'
       expect(response).to have_http_status(:found)
     end
 
     it 'redirects to root_path' do
-      put '/items/all_read'
+      put '/items/current_read'
       expect(response).to redirect_to(root_path)
     end
-  end
 
-  describe 'PUT /feed/:feed_id/items/all_read' do
-    before { create_list(:item, 3) }
+    context 'with settings selected' do
+      before { Setting.first_or_create(selection: feed) }
 
-    let(:feed) { Feed.first }
+      let(:feed) { Feed.first }
 
-    it 'updates the items' do
-      put "/feeds/#{feed.id}/items/all_read"
-      expect(Item.all.map(&:status)).to eq(%w[read unread unread])
-    end
+      it 'updates the items' do
+        put '/items/current_read'
+        expect(Item.all.map(&:status)).to eq(%w[read unread unread])
+      end
 
-    it 'returns http found' do
-      put "/feeds/#{feed.id}/items/all_read"
-      expect(response).to have_http_status(:found)
-    end
+      it 'returns http found' do
+        put '/items/current_read'
+        expect(response).to have_http_status(:found)
+      end
 
-    it 'redirects to root_path' do
-      put "/feeds/#{feed.id}/items/all_read"
-      expect(response).to redirect_to(root_path)
+      it 'redirects to root_path' do
+        put '/items/current_read'
+        expect(response).to redirect_to(root_path)
+      end
     end
   end
 end

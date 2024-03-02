@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  before_action :set_sidebar_data, :set_settings
+  before_action :set_settings
 
   def set_sidebar_data
     @sidebar_folders = Folder.all

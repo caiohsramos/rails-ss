@@ -10,20 +10,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'pages#home'
   resources :feeds do
-    resources :items, only: %i[index] do
-      put :all_read, on: :collection
-    end
+    resources :items, only: %i[index]
     get :list, on: :collection
     put :refresh, on: :collection
     get :icon
+    get :unread_list, on: :collection
   end
   resources :items, only: %i[update index] do
-    put :all_read, on: :collection
+    put :current_read, on: :collection
   end
   resources :folders do
-    resources :items, only: %i[index] do
-      put :all_read, on: :collection
-    end
+    resources :items, only: %i[index]
   end
   resource :settings, only: %i[update]
   namespace :subscriptions do

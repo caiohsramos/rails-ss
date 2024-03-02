@@ -11,17 +11,13 @@
   </div>
   <div class="navbar-end">
     <div class="tooltip tooltip-bottom" data-tip="Refresh feeds">
-      <%= form_with url: refresh_feeds_path, method: :put do |f| %>
-        <%= f.button type: :submit, class: 'btn btn-ghost btn-circle' do %>
-          <%= render 'icons/arrow-path' %>
-        <% end %>
+      <%= button_to refresh_feeds_path, method: :put, class: 'btn btn-ghost btn-circle' do %>
+        <%= render 'icons/arrow-path' %>
       <% end %>
     </div>
     <div class="tooltip tooltip-left" data-tip="Mark read (selected)">
-      <%= form_with url: all_read_form_path(@settings.selection), method: :put, data: { hotkeys_target: 'readAllForm', turbo_confirm: 'Mark read?' } do |f| %>
-        <%= f.button type: :submit, class: 'btn btn-ghost btn-circle' do %>
-          <%= render 'icons/check' %>
-        <% end %>
+      <%= button_to current_read_items_path, method: :put, data: { hotkeys_target: 'readAllForm', turbo_confirm: 'Mark read?', turbo_frame: :content }, class: 'btn btn-ghost btn-circle' do %>
+        <%= render 'icons/check' %>
       <% end %>
     </div>
   </div>

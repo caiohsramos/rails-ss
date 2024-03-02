@@ -1,1 +1,3 @@
-<%= turbo_frame_tag :items, src: items_path(filter: @settings.filter, q: params[:q]) %>
+<%= turbo_frame_tag :content, data: { turbo_permanent: true } do %>
+  <%= turbo_frame_tag :items, src: items_path(filter: @settings.filter, q: params[:q]), data: { controller: 'content', action: 'turbo:frame-load->content#loaded' } %>
+<% end %>

@@ -2,6 +2,7 @@
 
 class FeedsController < ApplicationController
   before_action :set_feed, only: %i[show edit update destroy icon]
+  before_action :set_sidebar_data, only: [:unread_list]
 
   # GET /feeds
   def index
@@ -57,6 +58,8 @@ class FeedsController < ApplicationController
   def icon
     send_data @feed.icon, type: 'image/png', disposition: 'inline'
   end
+
+  def unread_list; end
 
   private
 

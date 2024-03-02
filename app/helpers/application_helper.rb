@@ -3,10 +3,6 @@
 module ApplicationHelper
   include Pagy::Frontend
 
-  def all_read_form_path(current_selection)
-    polymorphic_path([:all_read, current_selection, :items])
-  end
-
   def current_path(current_selection, **)
     return root_path(**) if current_selection.blank?
 

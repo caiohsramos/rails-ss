@@ -96,6 +96,16 @@ RSpec.describe 'Feeds' do
     end
   end
 
+  describe 'GET unread_list' do
+    let(:feed) { create_list(:feed, 3) }
+
+    it 'returns the list' do
+      get('/feeds/unread_list')
+      expect(response).to render_template(:unread_list)
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   describe 'PUT refresh' do
     let(:feed) { create(:feed) }
 
