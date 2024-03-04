@@ -143,7 +143,7 @@ GEM
       activesupport (>= 5.0.0)
     json (2.7.1)
     language_server-protocol (3.17.0.3)
-    litestack (0.4.2)
+    litestack (0.4.3)
       erubi
       hanami-router
       oj
@@ -181,7 +181,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
-    oj (3.16.1)
+    oj (3.16.3)
+      bigdecimal (>= 3.0)
     opmlparser (1.0.1)
     pagy (6.4.3)
     parallel (1.24.0)
@@ -361,7 +362,7 @@ DEPENDENCIES
   importmap-rails
   interactor (~> 3.0)
   jbuilder
-  litestack (~> 0.4.2)
+  litestack (~> 0.4.3)
   opmlparser (~> 1.0)
   pagy (~> 6.4)
   parallel (~> 1.24)

@@ -85,7 +85,7 @@ gem 'feedjira'
 
 gem 'interactor', '~> 3.0'
 
-gem 'litestack', '~> 0.4.2'
+gem 'litestack', '~> 0.4.3'
 
 gem 'faraday'
 gem 'faraday-follow_redirects'
