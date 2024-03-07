@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% folders.each do |folder| %>
+      <tr>
+        <td><%= folder.title %></td>
+        <td>
+          <%= link_to edit_folder_path(folder), class: 'tooltip', data: { tip: 'Edit folder' } do %>
+            <%= render 'icons/edit' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to folder_path(folder), class: 'tooltip', data: { tip: 'Delete folder', turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <%= render 'icons/trash' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

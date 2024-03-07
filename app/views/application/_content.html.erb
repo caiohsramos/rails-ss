@@ -1,0 +1,6 @@
+<% content_for(:sidebar) do %>
+  <%= render 'sidebar/navigation' %>
+<% end %>
+<%= turbo_frame_tag :content, data: { turbo_permanent: true } do %>
+  <%= turbo_frame_tag :items, src: source_path, data: { controller: 'content', action: 'turbo:frame-load->content#loaded' } %>
+<% end %>

@@ -15,9 +15,14 @@
         <%= render 'icons/arrow-path' %>
       <% end %>
     </div>
-    <div class="tooltip tooltip-left" data-tip="Mark read (selected)">
+    <div class="tooltip tooltip-bottom" data-tip="Mark read (selected)">
       <%= button_to current_read_items_path, method: :put, data: { hotkeys_target: 'readAllForm', turbo_confirm: 'Mark read?', turbo_frame: :content }, class: 'btn btn-ghost btn-circle' do %>
         <%= render 'icons/check' %>
+      <% end %>
+    </div>
+    <div class="tooltip tooltip-left" data-tip="Manage">
+      <%= link_to feeds_path, class: 'btn btn-ghost btn-circle' do %>
+        <%= render 'icons/settings' %>
       <% end %>
     </div>
   </div>

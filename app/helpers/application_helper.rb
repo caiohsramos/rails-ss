@@ -39,4 +39,19 @@ module ApplicationHelper
       'hotkeys:toggleStarred@window->items#toggleStarredCurrent'
     ].join(' ')
   end
+
+  def render_badges?(current_filter)
+    current_filter.in?(%w[starred unread])
+  end
+
+  def render_navigation_item?(navigation_item, metrics, current_selection, current_filter)
+    return true if current_filter == 'all'
+    return true if current_selection == navigation_item || current_selection.try(:folder) == navigation_item
+
+    !badge_for(navigation_item, metrics, current_filter).zero?
+  end
+
+  def badge_for(navigation_item, metrics, current_filter)
+    metrics.send(current_filter).for(navigation_item)
+  end
 end

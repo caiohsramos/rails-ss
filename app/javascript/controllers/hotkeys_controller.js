@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["filterSelect", "readAllForm", "listItem", "search"];
+  static targets = ["filterSelect", "readAllForm", "navigationItem", "search"];
 
   // 1, 2, 3
   selectAll(e) {
@@ -40,19 +40,19 @@ export default class extends Controller {
   // h, l
   nextFeed(e) {
     if (this.shouldIgnore(e)) return;
-    this.listItemTargets.forEach((listItem, idx) => {
-      const isActive = listItem.classList.contains("active");
-      if (isActive && idx !== this.listItemTargets.length - 1) {
-        Turbo.visit(this.listItemTargets[idx + 1].href);
+    this.navigationItemTargets.forEach((navigationItem, idx) => {
+      const isActive = navigationItem.classList.contains("active");
+      if (isActive && idx !== this.navigationItemTargets.length - 1) {
+        Turbo.visit(this.navigationItemTargets[idx + 1].href);
       }
     });
   }
   previousFeed(e) {
     if (this.shouldIgnore(e)) return;
-    this.listItemTargets.forEach((listItem, idx) => {
-      const isActive = listItem.classList.contains("active");
+    this.navigationItemTargets.forEach((navigationItem, idx) => {
+      const isActive = navigationItem.classList.contains("active");
       if (isActive && idx !== 0) {
-        Turbo.visit(this.listItemTargets[idx - 1].href);
+        Turbo.visit(this.navigationItemTargets[idx - 1].href);
       }
     });
   }
