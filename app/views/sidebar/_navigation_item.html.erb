@@ -4,7 +4,7 @@
     <%= link_to root_path, data: { hotkeys_target: 'navigationItem', turbo_frame: :content, turbo_action: :advance }, class: class_names({ active: @settings.selection.blank? }) do %>
       All feeds
       <% if render_badges?(@settings.filter) %>
-        <div class="badge"><%= @sidebar_metrics.send(@settings.filter).all %></div>
+        <div class="badge badge-sm"><%= @sidebar_metrics.send(@settings.filter).all %></div>
       <% end %>
     <% end %>
   </li>
@@ -15,7 +15,7 @@
       <%= image_tag feed_icon_path(navigation_item), size: '16x16', alt: navigation_item.title, class: 'h-4' if navigation_item.try(:icon).present? %>
       <p class="min-w-0 truncate"><%= navigation_item.title %></p>
       <% if render_badges?(@settings.filter) %>
-        <div class="badge"><%= badge_for(navigation_item, @sidebar_metrics, @settings.filter) %></div>
+        <div class="badge badge-sm"><%= badge_for(navigation_item, @sidebar_metrics, @settings.filter) %></div>
       <% end %>
     <% end %>
     <% if navigation_item.respond_to?(:feeds) %>
