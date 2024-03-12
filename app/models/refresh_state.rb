@@ -4,6 +4,7 @@ class RefreshState < ApplicationRecord
   include AASM
 
   belongs_to :feed
+  broadcasts_refreshes
 
   aasm column: :state do
     state :success, initial: true

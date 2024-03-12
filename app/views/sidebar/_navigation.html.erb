@@ -9,4 +9,9 @@
   <%= form.label :filter, 'Filter', class: 'label' %>
   <%= form.select :filter, filter_options, { selected: @settings.filter }, { class: "select select-sm w-full max-w-xs", onchange: 'this.form.requestSubmit()', data: { hotkeys_target: 'filterSelect' } } %>
 <% end %>
-<%= turbo_frame_tag :unread_list, src: unread_list_feeds_path, refresh: :morph %>
+<%= turbo_frame_tag :unread_list, src: unread_list_feeds_path, refresh: :morph do %>
+  <div class="flex flex-col gap-4 pt-4">
+    <% 10.times do %>
+      <div class="skeleton w-72 h-6"></div>
+    <% end %>
+  <% end %>
