@@ -30,7 +30,7 @@
                 },
               } %>
 <% end %>
-<%= turbo_frame_tag :unread_list, src: unread_list_feeds_path, refresh: :morph do %>
+<%= turbo_frame_tag :unread_list, src: unread_list_feeds_path, refresh: :morph, data: {drawer_target: 'unreadList'} do %>
   <div class="flex flex-col gap-4 pt-4">
     <% 10.times do %>
       <div class="skeleton w-72 h-6"></div>

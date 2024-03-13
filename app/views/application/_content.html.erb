@@ -2,7 +2,7 @@
   <%= render "sidebar/navigation" %>
 <% end %>
 <%= turbo_frame_tag :content, data: { turbo_permanent: true } do %>
-  <%= turbo_frame_tag :items, src: source_path, data: { controller: 'content', action: 'turbo:frame-load->content#loaded' } do %>
+  <%= turbo_frame_tag :items, src: source_path, data: { action: 'turbo:frame-load->drawer#contentLoaded' } do %>
     <div class="flex flex-col gap-2 p-3">
       <% 3.times do %>
         <div class="skeleton w-96 h-8"></div>
