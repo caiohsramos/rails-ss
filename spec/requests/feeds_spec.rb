@@ -110,7 +110,7 @@ RSpec.describe 'Feeds' do
     let(:feed) { create(:feed) }
 
     it 'calls refresh and redirect' do
-      expect(RefreshAllFeedsJob).to receive(:perform_now)
+      expect(RefreshAllFeedsJob).to receive(:perform_later)
       put('/feeds/refresh')
       expect(response).to redirect_to(root_url)
     end

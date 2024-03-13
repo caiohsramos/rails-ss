@@ -46,6 +46,7 @@ RSpec.describe RefreshFeedJob do
     end
 
     it 'updates refresh state' do
+      expect(Turbo::StreamsChannel).to receive(:broadcast_refresh_to).with(:refresh_states)
       expect do
         perform
         refresh_state.reload

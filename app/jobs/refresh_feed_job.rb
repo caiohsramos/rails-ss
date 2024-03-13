@@ -9,6 +9,7 @@ class RefreshFeedJob < ApplicationJob
     create_items
   ensure
     @feed.refresh_state.finish!
+    Turbo::StreamsChannel.broadcast_refresh_to :refresh_states
   end
 
   private
