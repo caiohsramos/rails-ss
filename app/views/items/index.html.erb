@@ -1,20 +1,40 @@
 <%= turbo_frame_tag :items do %>
   <div class="container py-5 px-3 md:px-5 w-screen sm:w-full">
     <div class="flex flex-col gap-4">
-      <div data-controller='items' data-items-current-class="border-l" data-action="<%= items_actions %>">
+      <div
+        data-controller='items'
+        data-items-current-class="border-l"
+        data-action="<%= items_actions %>"
+      >
         <%= turbo_frame_tag "items_page_#{@pagy.page}" do %>
-          <%= render partial: 'item', collection: @items, spacer_template: "application/divider" %>
+          <%= render partial: "item",
+          collection: @items,
+          spacer_template: "application/divider" %>
           <% if @items.empty? %>
             <p class='text-center text-2xl'>
-              <%= @pagy.page == 1 ? 'No items to display :(' : tag.a('Reload for more items', onclick: 'window.location.reload()', class: "link link-primary") %>
+              <%= if @pagy.page == 1
+                "No items to display :("
+              else
+                tag.a(
+                  "Reload for more items",
+                  onclick: "window.location.reload()",
+                  class: "link link-primary",
+                )
+              end %>
             </p>
           <% else %>
-            <%= render 'application/divider' %>
+            <%= render "application/divider" %>
           <% end %>
           <% if @pagy.next %>
             <%= turbo_frame_tag "items_page_#{@pagy.next}",
-                          src: current_items_path(@settings.selection, filter: @settings.filter, page: @pagy.next, q: params[:q]),
-                          loading: :lazy %>
+            src:
+              current_items_path(
+                @settings.selection,
+                filter: @settings.filter,
+                page: @pagy.next,
+                q: params[:q],
+              ),
+            loading: :lazy %>
           <% end %>
         <% end %>
       </div>

@@ -2,7 +2,11 @@
   <div class='flex flex-col gap-3'>
     <h1 class="font-bold text-4xl">Folders</h1>
     <div id="folders" class="min-w-full">
-      <%= @folders.present? ? render('table', folders: @folders) : "You don't have any folders" %>
+      <%= if @folders.present?
+        render("table", folders: @folders)
+      else
+        "You don't have any folders"
+      end %>
     </div>
   </div>
 </div>

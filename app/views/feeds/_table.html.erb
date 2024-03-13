@@ -10,26 +10,30 @@
   </thead>
   <tbody>
     <% feeds.each do |feed| %>
-      <tr class=<%= class_names('border border-error': feed.refresh_state.error?)%> >
+      <tr class=<%= class_names('border border-error': feed.refresh_state.error?)%>>
         <!-- TODO implement feedback -->
-        <% #if feed.refresh_state.error? %>
-        <!-- <p class='italic'>Failed with error: <%= feed.refresh_state.error %></p> -->
-        <% #end %>
+        <%#if feed.refresh_state.error? %>
+        <!--
+        <p class='italic'>Failed with error:
+          <%= feed.refresh_state.error %></p>
+        -->
+        <%#end %>
         <td><%= feed.title %></td>
-        <td class="hidden lg:block"><%= time_ago_in_words feed.refresh_state.refreshed_at %> ago</td>
+        <td class="hidden lg:block"><%= time_ago_in_words feed.refresh_state.refreshed_at %>
+          ago</td>
         <td>
           <%= link_to feed.link, class: 'tooltip', data: { tip: 'Go to feed' }, target: :_blank do %>
-            <%= render 'icons/link' %>
+            <%= render "icons/link" %>
           <% end %>
         </td>
         <td>
           <%= link_to edit_feed_path(feed), class: 'tooltip', data: { tip: 'Edit feed' } do %>
-            <%= render 'icons/edit' %>
+            <%= render "icons/edit" %>
           <% end %>
         </td>
         <td>
           <%= link_to feed_path(feed), class: 'tooltip', data: { tip: 'Delete feed', turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-            <%= render 'icons/trash' %>
+            <%= render "icons/trash" %>
           <% end %>
         </td>
       </tr>

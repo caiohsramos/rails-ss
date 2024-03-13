@@ -3,27 +3,29 @@
   <div class="navbar-start">
     <div class="flex-none">
       <label for="drawer" class="btn btn-square btn-ghost drawer-button lg:hidden">
-        <%= render 'icons/bars-3' %>
+        <%= render "icons/bars-3" %>
       </label>
     </div>
-    <%= link_to 'Rails-ss', root_path, class: 'btn btn-ghost normal-case text-xl pl-0 lg:pl-4' %>
+    <%= link_to "Rails-ss",
+    root_path,
+    class: "btn btn-ghost normal-case text-xl pl-0 lg:pl-4" %>
   </div>
   <div class="navbar-center">
   </div>
   <div class="navbar-end">
     <div class="tooltip tooltip-bottom" data-tip="Refresh feeds">
       <%= button_to refresh_feeds_path, method: :put, class: 'btn btn-ghost btn-circle' do %>
-        <%= render 'icons/arrow-path' %>
+        <%= render "icons/arrow-path" %>
       <% end %>
     </div>
     <div class="tooltip tooltip-bottom" data-tip="Mark read (selected)">
       <%= button_to current_read_items_path, method: :put, data: { hotkeys_target: 'readAllForm', turbo_confirm: 'Mark read?', turbo_frame: :content }, class: 'btn btn-ghost btn-circle' do %>
-        <%= render 'icons/check' %>
+        <%= render "icons/check" %>
       <% end %>
     </div>
     <div class="tooltip tooltip-left" data-tip="Manage">
       <%= link_to feeds_path, class: 'btn btn-ghost btn-circle' do %>
-        <%= render 'icons/settings' %>
+        <%= render "icons/settings" %>
       <% end %>
     </div>
   </div>

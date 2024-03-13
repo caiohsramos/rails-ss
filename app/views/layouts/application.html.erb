@@ -13,8 +13,8 @@
   </head>
   <body data-controller='hotkeys' data-action='<%= hotkey_actions %>'>
     <main>
-      <%= render 'modal' %>
-      <%= render 'flash' %>
+      <%= render "modal" %>
+      <%= render "flash" %>
       <%= render 'drawer' do %>
         <%= yield %>
       <% end %>

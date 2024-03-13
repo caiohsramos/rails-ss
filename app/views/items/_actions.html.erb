@@ -3,17 +3,17 @@
     <%= form_with model: item, class: 'flex items-center' do |f| %>
       <%= f.hidden_field(:status, value: (item.unread? ? :read : :unread)) %>
       <%= f.button type: 'submit', data: { items_target: 'itemRead' } do %>
-        <%= item.unread? ? render('icons/book-solid') : render('icons/book-outline') %>
+        <%= item.unread? ? render("icons/book-solid") : render("icons/book-outline") %>
       <% end %>
     <% end %>
     <%= form_with model: item, class: 'flex items-center' do |f| %>
       <%= f.hidden_field(:status, value: (item.starred? ? :read : :starred)) %>
       <%= f.button type: 'submit', data: { items_target: 'itemStarred' } do %>
-        <%= item.starred? ? render('icons/star-solid') : render('icons/star-outline') %>
+        <%= item.starred? ? render("icons/star-solid") : render("icons/star-outline") %>
       <% end %>
     <% end %>
     <%= link_to item.link, target: :_blank, data: { items_target: 'itemLink' } do %>
-      <%= render('icons/link_small') %>
+      <%= render("icons/link_small") %>
     <% end %>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
 <div class="drawer lg:drawer-open">
-  <input id="drawer" type="checkbox" class="drawer-toggle" />
+  <input id="drawer" type="checkbox" class="drawer-toggle"/>
   <div class="drawer-content">
     <%= render "navbar" %>
     <%= yield %>
@@ -7,7 +7,7 @@
   <div class="drawer-side z-20">
     <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
     <div class='flex flex-col gap-3 p-1 min-h-full bg-base-200 max-w-xs lg:p-3'>
-      <%= content_for?(:sidebar) ? yield(:sidebar) : render('sidebar/manage') %>
+      <%= content_for?(:sidebar) ? yield(:sidebar) : render("sidebar/manage") %>
     </div>
   </div>
 </div>

@@ -11,8 +11,13 @@
 <% elsif render_navigation_item?(navigation_item, @sidebar_metrics, @settings.selection, @settings.filter) %>
   <li class="py-2" id="<%= dom_id(navigation_item, :navigation_item) %>">
     <%= link_to navigation_item, data: { hotkeys_target: 'navigationItem', turbo_frame: :content, turbo_action: :advance }, class: class_names({ active: navigation_item == @settings.selection, 'border border-error' => navigation_item.try(:refresh_state)&.error? }) do %>
-      <%= render 'icons/chevron-down' if navigation_item.respond_to?(:feeds) %>
-      <%= image_tag feed_icon_path(navigation_item), size: '16x16', alt: navigation_item.title, class: 'h-4' if navigation_item.try(:icon).present? %>
+      <%= render "icons/chevron-down" if navigation_item.respond_to?(:feeds) %>
+      <%= if navigation_item.try(:icon).present?
+        image_tag feed_icon_path(navigation_item),
+        size: "16x16",
+        alt: navigation_item.title,
+        class: "h-4"
+      end %>
       <p class="min-w-0 truncate"><%= navigation_item.title %></p>
       <% if render_badges?(@settings.filter) %>
         <div class="badge badge-sm"><%= badge_for(navigation_item, @sidebar_metrics, @settings.filter) %></div>
@@ -20,7 +25,9 @@
     <% end %>
     <% if navigation_item.respond_to?(:feeds) %>
       <ul>
-        <%= render partial: 'sidebar/navigation_item', collection: navigation_item.feeds, as: :navigation_item %>
+        <%= render partial: "sidebar/navigation_item",
+        collection: navigation_item.feeds,
+        as: :navigation_item %>
       </ul>
     <% end %>
   </li>

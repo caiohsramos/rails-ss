@@ -3,7 +3,8 @@
   <div class='form-control flex flex-col gap-4'>
     <% if feed.errors.any? %>
       <div id="error_explanation" class="alert alert-error mt-3 block">
-        <h2><%= pluralize(feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+        <h2><%= pluralize(feed.errors.count, "error") %>
+          prohibited this feed from being saved:</h2>
         <ul>
           <% feed.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -13,29 +14,37 @@
     <% end %>
     <% if show_all_fields %>
       <div>
-        <%= form.label :title, class: 'label' %>
+        <%= form.label :title, class: "label" %>
         <%= form.text_field :title, class: "input input-bordered w-full" %>
       </div>
       <div>
-        <%= form.label :description, class: 'label' %>
+        <%= form.label :description, class: "label" %>
         <%= form.text_area :description, class: "textarea textarea-bordered w-full" %>
       </div>
       <div>
-        <%= form.label :link, class: 'label' %>
+        <%= form.label :link, class: "label" %>
         <%= form.text_field :link, class: "input input-bordered w-full" %>
       </div>
     <% end %>
     <div>
-      <%= form.label :feed_link, class: 'label' %>
+      <%= form.label :feed_link, class: "label" %>
       <%= form.text_field :feed_link, class: "input input-bordered w-full" %>
     </div>
     <%= turbo_frame_tag dom_id(Folder), class: 'flex flex-col gap-4' do %>
       <div>
         <div class="flex justify-between items-baseline">
-          <%= form.label :folder_id, class: 'label' %>
-          <%= link_to "New folder", new_folder_path, class: 'link link-primary' %>
+          <%= form.label :folder_id, class: "label" %>
+          <%= link_to "New folder", new_folder_path, class: "link link-primary" %>
         </div>
-        <%= form.collection_select :folder_id, Folder.all, :id, :title, { include_blank: 'No feed' }, { class: "select select-bordered w-full", id: dom_id(feed, :select_folder) } %>
+        <%= form.collection_select :folder_id,
+                               Folder.all,
+                               :id,
+                               :title,
+                               { include_blank: "No feed" },
+                               {
+                                 class: "select select-bordered w-full",
+                                 id: dom_id(feed, :select_folder),
+                               } %>
       </div>
       <%= form.submit class: "btn btn-primary self-center w-full max-w-md" %>
     <% end %>

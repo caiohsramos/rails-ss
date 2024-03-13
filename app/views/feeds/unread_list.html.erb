@@ -1,7 +1,11 @@
 <%= turbo_frame_tag :unread_list do %>
   <ul class="menu w-72 menu-sm px-0" data-turbo-prefetch="false">
-    <%= render 'sidebar/navigation_item' %>
-    <%= render partial: 'sidebar/navigation_item', collection: @sidebar_folders, as: :navigation_item %>
-    <%= render partial: 'sidebar/navigation_item', collection: @sidebar_unfoldered_feeds, as: :navigation_item %>
+    <%= render "sidebar/navigation_item" %>
+    <%= render partial: "sidebar/navigation_item",
+    collection: @sidebar_folders,
+    as: :navigation_item %>
+    <%= render partial: "sidebar/navigation_item",
+    collection: @sidebar_unfoldered_feeds,
+    as: :navigation_item %>
   </ul>
 <% end %>

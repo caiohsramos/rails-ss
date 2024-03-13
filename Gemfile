@@ -97,3 +97,5 @@ gem 'pagy', '~> 7.0'
 gem 'aasm'
 
 gem 'solid_cache'
+
+gem "erb-formatter", "~> 0.7.2"
