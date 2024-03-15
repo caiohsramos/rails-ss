@@ -10,15 +10,18 @@
   </thead>
   <tbody>
     <% feeds.each do |feed| %>
-      <tr class=<%= class_names('border border-error': feed.refresh_state.error?)%>>
-        <!-- TODO implement feedback -->
-        <%#if feed.refresh_state.error? %>
-        <!--
-        <p class='italic'>Failed with error:
-          <%= feed.refresh_state.error %></p>
-        -->
-        <%#end %>
-        <td><%= feed.title %></td>
+      <tr>
+        <td>
+          <%= tag.div feed.title,
+                  class:
+                    class_names(
+                      "tooltip tooltip-error tooltip-right text-error":
+                        feed.refresh_state.error?,
+                    ),
+                  data: {
+                    tip: feed.refresh_state.error,
+                  } %>
+        </td>
         <td class="hidden lg:block"><%= time_ago_in_words feed.refresh_state.refreshed_at %>
           ago</td>
         <td>

@@ -1,0 +1,9 @@
+<div class="tooltip tooltip-bottom" data-tip="Refresh feeds">
+  <% unless feeds_refreshing? %>
+    <%= button_to refresh_feeds_path, method: :put, class: 'btn btn-ghost btn-circle' do %>
+      <%= render "icons/arrow-path" %>
+    <% end %>
+  <% else %>
+    <span class="loading loading-spinner loading-md mt-2 mx-2"></span>
+  <% end %>
+</div>

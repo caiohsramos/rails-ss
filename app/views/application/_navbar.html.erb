@@ -13,11 +13,7 @@
   <div class="navbar-center">
   </div>
   <div class="navbar-end">
-    <div class="tooltip tooltip-bottom" data-tip="Refresh feeds">
-      <%= button_to refresh_feeds_path, method: :put, class: 'btn btn-ghost btn-circle' do %>
-        <%= render "icons/arrow-path" %>
-      <% end %>
-    </div>
+    <%= render "refresh_button" %>
     <div class="tooltip tooltip-bottom" data-tip="Mark read (selected)">
       <%= button_to current_read_items_path, method: :put, data: { hotkeys_target: 'readAllForm', turbo_confirm: 'Mark read?', turbo_frame: :content }, class: 'btn btn-ghost btn-circle' do %>
         <%= render "icons/check" %>
