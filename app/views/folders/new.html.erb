@@ -1,6 +1,8 @@
 <div class="container md:w-2/3 w-full p-5">
   <%= turbo_frame_tag "modal-frame" do %>
-    <h1 class="font-bold text-4xl">Add folder</h1>
-    <%= render "form", folder: @folder %>
+    <%= turbo_frame_tag dom_id(Folder) do %>
+      <h1 class="font-bold text-4xl">Add folder</h1>
+      <%= render "form", folder: @folder %>
+    <% end %>
   <% end %>
 </div>
