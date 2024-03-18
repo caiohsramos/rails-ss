@@ -24,11 +24,10 @@ class FeedsController < ApplicationController
 
   # POST /feeds
   def create
-    result = CreateFeed.call(feed_params)
+    @feed = Feed.build_with_remote_data(feed_params)
 
-    @feed = result.feed
-    if result.success?
-      redirect_to @feed, notice: 'Feed was successfully created.'
+    if @feed.save
+      redirect_to feeds_path, notice: 'Feed was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end

@@ -22,7 +22,7 @@
                     tip: feed.refresh_state.error,
                   } %>
         </td>
-        <td class="hidden lg:block"><%= time_ago_in_words feed.refresh_state.refreshed_at %>
+        <td class="hidden lg:block"><%= time_ago_in_words feed.refresh_state.refreshed_at || Time.zone.now %>
           ago</td>
         <td>
           <%= link_to feed.link, class: 'tooltip', data: { tip: 'Go to feed' }, target: :_blank do %>

@@ -44,14 +44,18 @@ module ApplicationHelper
     current_filter.in?(%w[starred unread])
   end
 
-  def render_navigation_item?(navigation_item, metrics, current_selection, current_filter)
+  def render_navigation_item?(navigation_item, current_selection, current_filter)
     return true if current_filter == 'all'
     return true if current_selection == navigation_item || current_selection.try(:folder) == navigation_item
 
-    !badge_for(navigation_item, metrics, current_filter).zero?
+    !metricable_filtered_count(navigation_item).zero?
   end
 
-  def badge_for(navigation_item, metrics, current_filter)
-    metrics.send(current_filter).for(navigation_item)
+  def metricable_filtered_count(metricable)
+    metric.for(metricable)
+  end
+
+  def all_filtered_count
+    metric.all
   end
 end

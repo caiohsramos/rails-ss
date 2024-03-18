@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
-class ImportSubscriptions
-  include Interactor
-  delegate :import_file, to: :context
+class Subscription
+  Result = Data.define(:success?)
 
-  def call
-    opml = OPML.parse import_file.read
+  def import(file)
+    opml = OPML.parse file.read
     outline = opml['outline']
     outline.each do |o|
       create_feed(o)
     end
+    Result.new(success?: true)
+  rescue StandardError
+    Result.new(success?: false)
   end
 
   private
@@ -20,6 +22,7 @@ class ImportSubscriptions
       return outline['outline'].each { |o| create_feed(o, folder.id) }
     end
 
-    CreateFeed.call(feed_link: outline['xmlUrl'], folder_id:)
+    feed = Feed.build_with_remote_data(feed_link: outline['xmlUrl'], folder_id:)
+    feed.save!
   end
 end

@@ -4,11 +4,11 @@
     <%= link_to root_path, data: { hotkeys_target: 'navigationItem', turbo_frame: :content, turbo_action: :advance }, class: class_names({ active: @settings.selection.blank? }) do %>
       All feeds
       <% if render_badges?(@settings.filter) %>
-        <div class="badge badge-sm"><%= @sidebar_metrics.send(@settings.filter).all %></div>
+        <div class="badge badge-sm"><%= all_filtered_count %></div>
       <% end %>
     <% end %>
   </li>
-<% elsif render_navigation_item?(navigation_item, @sidebar_metrics, @settings.selection, @settings.filter) %>
+<% elsif render_navigation_item?(navigation_item, @settings.selection, @settings.filter) %>
   <li class="py-2" id="<%= dom_id(navigation_item, :navigation_item) %>">
     <%= link_to navigation_item, data: { hotkeys_target: 'navigationItem', turbo_frame: :content, turbo_action: :advance }, class: class_names({ active: navigation_item == @settings.selection, 'border border-error' => navigation_item.try(:refresh_state)&.error? }) do %>
       <%= render "icons/chevron-down" if navigation_item.respond_to?(:feeds) %>
@@ -20,7 +20,7 @@
       end %>
       <p class="min-w-0 truncate"><%= navigation_item.title %></p>
       <% if render_badges?(@settings.filter) %>
-        <div class="badge badge-sm"><%= badge_for(navigation_item, @sidebar_metrics, @settings.filter) %></div>
+        <div class="badge badge-sm"><%= metricable_filtered_count(navigation_item) %></div>
       <% end %>
     <% end %>
     <% if navigation_item.respond_to?(:feeds) %>

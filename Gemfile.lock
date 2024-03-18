@@ -135,7 +135,6 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
-    interactor (3.1.2)
     io-console (0.7.2)
     irb (1.12.0)
       rdoc
@@ -366,7 +365,6 @@ DEPENDENCIES
   faraday-follow_redirects
   feedjira
   importmap-rails
-  interactor (~> 3.0)
   jbuilder
   litestack (~> 0.4.3)
   opmlparser (~> 1.0)

@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
       Item.joins(:feed).where(feed: { folder_id: params[:folder_id] })
     else
       Item
-    end.order(date: :desc)
+    end.includes(:feed).order(date: :desc)
   end
 
   def item_params

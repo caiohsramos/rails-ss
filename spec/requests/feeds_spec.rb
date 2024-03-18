@@ -65,21 +65,16 @@ RSpec.describe 'Feeds' do
 
   describe 'POST create' do
     let(:params) { { feed: { feed_link: 'feed_link' } } }
-    let(:context) { double(:context, success?: true, feed: create(:feed)) }
-
-    before do
-      expect(CreateFeed).to receive(:call).once.and_return(context)
-    end
 
     it 'redirects to feeds_path' do
+      expect(Feed).to receive(:build_with_remote_data).and_return(create(:feed))
       post('/feeds', params:)
-      expect(response).to redirect_to(feed_url(assigns(:feed)))
+      expect(response).to redirect_to(feeds_url)
     end
 
-    context 'when CreateFeed fails' do
-      let(:context) { double(:context, success?: false, feed: build(:feed)) }
-
+    context 'when create feed fails' do
       it 'renders new with 422' do
+        expect(Feed).to receive(:build_with_remote_data).and_return(build(:feed, feed_link: nil))
         post('/feeds', params:)
         expect(response).to render_template(:new)
         expect(response).to have_http_status(:unprocessable_entity)

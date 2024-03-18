@@ -4,12 +4,15 @@ require 'rails_helper'
 
 RSpec.describe 'Subscriptions' do
   describe 'POST /import' do
-    it 'calls ImportSubscriptions with correct file' do
-      import_file = fixture_file_upload('subscriptions.opml')
-      expect(ImportSubscriptions).to receive(:call)
-        .with(import_file: having_attributes(original_filename: 'subscriptions.opml'))
-        .and_return(double(success?: true))
+    let(:import_file) { fixture_file_upload('subscriptions.opml') }
+
+    it 'calls Subscription with correct file' do
+      subscription = double(import: double(success?: true))
+      allow(Subscription).to receive(:new).and_return(subscription)
+      expect(subscription).to receive(:import).with(having_attributes(original_filename: 'subscriptions.opml'))
+
       post '/subscriptions/import', params: { import_file: }
+      expect(response).to redirect_to(root_path)
     end
   end
 end
