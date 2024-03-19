@@ -17,6 +17,20 @@ docker run \
   ghcr.io/caiohsramos/rails-ss:<version>
 ```
 
+A simple login form is present to allow usage and can be configured with the variables `AUTH_USERNAME` and `AUTH_PASSWORD`. If no variables are providade the defaults are used (`admin`/`password`).
+
+Example:
+```
+docker run \
+  -p 3000:3000 \
+  -e SECRET_KEY_BASE=123 \
+  -e AUTH_USERNAME=user \
+  -e AUTH_PASSWORD=pass \
+  -v ./yourlocalbackup/db:/rails/db/production \
+  --restart unless-stopped \
+  ghcr.io/caiohsramos/rails-ss:<version>
+```
+
 # Developing
 > A version manager is recommended when developing Ruby applications
 
@@ -26,14 +40,19 @@ docker run \
 
 # Screenshots
 
-<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/f84dbc6e-f52c-4662-8a13-7912e1f726d9">
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/08575fad-04cc-4f1c-a9f3-a5867ba9d375">
 
+---
 
-<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/eefbfef0-7bd8-4937-9b06-e6fe69584c5f">
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/7b2acc7d-b5f5-4a80-b336-34b90fdb64f0">
 
-<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/144cdc19-b266-458d-8190-7811719c051d">
+---
 
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/bb3f24b0-b844-452f-ad88-2d400c7760f7">
 
+---
+
+<img width="1470" alt="image" src="https://github.com/caiohsramos/rails-ss/assets/12804854/11927ecc-3f08-49d3-823c-14f131bd8114">
 
 ## Hotkey navigation
 
