@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsSs</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
-    <%= yield :head %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= render "head" %>
   <body data-controller='hotkeys' data-action='<%= hotkey_actions %>'>
     <main>
       <%= render "modal" %>

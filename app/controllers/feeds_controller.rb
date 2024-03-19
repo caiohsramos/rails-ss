@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FeedsController < ApplicationController
+class FeedsController < AuthorizedController
   before_action :set_feed, only: %i[show edit update destroy icon]
   before_action :set_sidebar_data, only: [:unread_list]
 

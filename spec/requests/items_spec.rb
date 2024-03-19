@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Items' do
+  include_context 'with authorization request'
+
   describe 'GET /items' do
     %i[all unread starred].each do |filter|
       it "renders index template with #{filter} filter" do

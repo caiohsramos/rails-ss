@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Folders' do
+  include_context 'with authorization request'
+
   describe 'GET index' do
     it 'renders index template' do
       get '/folders'

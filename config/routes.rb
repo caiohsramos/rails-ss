@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   namespace :pages do
     get :hotkeys
   end
+  resource :session, only: %i[new create]
 end

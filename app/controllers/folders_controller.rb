@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FoldersController < ApplicationController
+class FoldersController < AuthorizedController
   before_action :set_folder, only: %i[show update destroy edit]
 
   def index

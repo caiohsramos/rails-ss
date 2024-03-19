@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SettingsController < ApplicationController
+class SettingsController < AuthorizedController
   def update
     @settings.update(settings_params)
 

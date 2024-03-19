@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Subscriptions' do
+  include_context 'with authorization request'
+
   describe 'POST /import' do
     let(:import_file) { fixture_file_upload('subscriptions.opml') }
 

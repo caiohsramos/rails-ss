@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SubscriptionsController < ApplicationController
+class SubscriptionsController < AuthorizedController
   def import
     result = Subscription.new.import(params[:import_file])
 

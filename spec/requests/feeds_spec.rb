@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Feeds' do
+  include_context 'with authorization request'
+
   describe 'GET index' do
     it 'renders index template' do
       get '/feeds'
