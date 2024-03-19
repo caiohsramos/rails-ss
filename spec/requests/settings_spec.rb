@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Settings' do
+  include_context 'with authorization request'
+
   describe 'PUT /settings' do
     let!(:settings) { create(:setting) }
 

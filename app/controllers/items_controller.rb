@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ItemsController < ApplicationController
+class ItemsController < AuthorizedController
   before_action :set_item, only: [:update]
 
   def index
