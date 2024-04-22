@@ -54,7 +54,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'rspec-rails', '~> 6.1.1'
+  gem 'rspec-rails', '~> 6.1.2'
 end
 
 group :test do
@@ -91,7 +91,7 @@ gem 'faraday-follow_redirects'
 
 gem 'opmlparser', '~> 1.0'
 
-gem 'pagy', '~> 7.0'
+gem 'pagy', '~> 8.2'
 
 gem 'aasm'
 
