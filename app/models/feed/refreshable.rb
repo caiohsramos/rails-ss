@@ -7,7 +7,7 @@ class Feed
     included do
       has_one :refresh_state, dependent: :destroy
       after_create_commit :refresh_feed
-      before_create :build_refresh_state
+      after_create :create_refresh_state
     end
 
     def refresh_feed
