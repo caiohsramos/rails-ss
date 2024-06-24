@@ -185,7 +185,7 @@ GEM
     oj (3.16.3)
       bigdecimal (>= 3.0)
     opmlparser (1.0.1)
-    pagy (8.3.0)
+    pagy (8.4.5)
     parallel (1.24.0)
     parser (3.3.1.0)
       ast (~> 2.4.1)
@@ -371,7 +371,7 @@ DEPENDENCIES
   jbuilder
   litestack (~> 0.4.3)
   opmlparser (~> 1.0)
-  pagy (~> 8.3)
+  pagy (~> 8.4)
   propshaft
   puma (>= 5.0)
   rails (~> 7.1.3)
