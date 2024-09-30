@@ -7,7 +7,7 @@ image: caiohsramos/rails-ss
 # Deploy to these servers.
 servers:
   web:
-    - 2a01:4ff:f0:ab1::1
+    - 178.156.140.74
   # job:
   #   hosts:
   #     - 192.168.0.1
