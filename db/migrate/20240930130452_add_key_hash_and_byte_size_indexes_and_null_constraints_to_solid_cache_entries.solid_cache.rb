@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from solid_cache (originally 20240110111600)
 class AddKeyHashAndByteSizeIndexesAndNullConstraintsToSolidCacheEntries < ActiveRecord::Migration[7.0]
   def change
@@ -5,7 +7,7 @@ class AddKeyHashAndByteSizeIndexesAndNullConstraintsToSolidCacheEntries < Active
       t.change_null :key_hash, false
       t.change_null :byte_size, false
       t.index  :key_hash, unique: true
-      t.index  [:key_hash, :byte_size]
+      t.index  %i[key_hash byte_size]
       t.index  :byte_size
     end
   end
