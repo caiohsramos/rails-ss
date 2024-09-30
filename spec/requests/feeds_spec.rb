@@ -79,7 +79,7 @@ RSpec.describe 'Feeds' do
         expect(Feed).to receive(:build_with_remote_data).and_return(build(:feed, feed_link: nil))
         post('/feeds', params:)
         expect(response).to render_template(:new)
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end

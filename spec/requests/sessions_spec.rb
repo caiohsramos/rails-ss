@@ -25,7 +25,7 @@ RSpec.describe 'Sessions' do
       it 'renders the new session form with an error message' do
         post '/session', params: { username: 'invalid_username', password: 'invalid_password' }
         expect(session[:authorized]).to be_nil
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(response).to render_template(:new)
         expect(flash[:alert]).to eq('Username or password is invalid')
       end
