@@ -89,7 +89,7 @@ gem 'faraday-follow_redirects'
 
 gem 'opmlparser', '~> 1.0'
 
-gem 'pagy', '~> 8.3'
+gem 'pagy', '~> 9.0'
 
 gem 'aasm'
 
