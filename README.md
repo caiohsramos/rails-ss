@@ -1,7 +1,7 @@
 # Rails-ss
 > This is a personal project meant to be self-hosted.
 
-This is my take on a feed reader using Rails 7.1 with no-bundle JS. It relies on modern web approaches such as [importmaps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) and the [Hotwire](https://hotwired.dev/) stack. It also uses https://github.com/oldmoe/litestack to manage database and queues, and Tailwind + DaisyUI for styling.
+This is my take on a feed reader using Rails 7.1 with no-bundle JS. It relies on modern web approaches such as [importmaps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) and the [Hotwire](https://hotwired.dev/) stack. It also uses the Solid stack to manage database, queues cache, and websockets, and Tailwind + DaisyUI for styling.
 
 # Deploying
 Build and run the Dockerfile. The env `SECRET_KEY_BASE` is required, and it's recommended to bind `/rails/db/production` to a local folder for backup. 
@@ -37,6 +37,8 @@ docker run \
 - Clone the repository
 - Run `bin/setup` (install gems + setup database)
 - Start the development server `bin/dev`
+
+You can also use [devcontainers](https://containers.dev/)
 
 # Screenshots
 
