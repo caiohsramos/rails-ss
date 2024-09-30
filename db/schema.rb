@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_16_010243) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_30_130453) do
   create_table "feeds", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -70,7 +70,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_16_010243) do
     t.binary "key", limit: 1024, null: false
     t.binary "value", limit: 536870912, null: false
     t.datetime "created_at", null: false
-    t.index ["key"], name: "index_solid_cache_entries_on_key", unique: true
+    t.integer "key_hash", limit: 8, null: false
+    t.integer "byte_size", limit: 4, null: false
+    t.index ["byte_size"], name: "index_solid_cache_entries_on_byte_size"
+    t.index ["key_hash", "byte_size"], name: "index_solid_cache_entries_on_key_hash_and_byte_size"
+    t.index ["key_hash"], name: "index_solid_cache_entries_on_key_hash", unique: true
   end
 
   add_foreign_key "feeds", "folders"
