@@ -103,6 +103,6 @@ gem 'solid_cable'
 gem 'solid_cache'
 gem 'solid_queue'
 
-gem 'erb-formatter', '~> 0.7.2'
+gem 'erb-formatter', '~> 0.7.3'
 
 gem 'ostruct'
