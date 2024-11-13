@@ -195,7 +195,7 @@ GEM
       racc (~> 1.4)
     opmlparser (1.0.1)
     ostruct (0.6.0)
-    pagy (9.2.0)
+    pagy (9.2.2)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
