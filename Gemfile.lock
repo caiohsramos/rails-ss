@@ -195,7 +195,7 @@ GEM
       racc (~> 1.4)
     opmlparser (1.0.1)
     ostruct (0.6.1)
-    pagy (9.2.2)
+    pagy (9.3.1)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
@@ -394,7 +394,7 @@ DEPENDENCIES
   kamal (>= 2.0.0.rc2)
   opmlparser (~> 1.0)
   ostruct
-  pagy (~> 9.2)
+  pagy (~> 9.3)
   propshaft
   puma (>= 5.0)
   rails (~> 7.2)
